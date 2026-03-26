@@ -1,0 +1,6 @@
+{
+  "name": "aso-skills",
+  "description": "Expert ASO skills for App Store Optimization — keyword research, metadata optimization, competitor analysis, and more. Powered by aso-cli.",
+  "version": "1.0.0",
+  "skills": "skills/*/SKILL.md"
+}

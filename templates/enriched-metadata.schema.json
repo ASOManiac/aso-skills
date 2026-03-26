@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asomaniac.com/schemas/enriched-metadata.json",
+  "title": "Enriched App Store Metadata",
+  "description": "Standardized format for keyword-enriched App Store metadata. Used by ASO skills for analysis, optimization, and export.",
+  "type": "object",
+  "required": ["appId", "generatedAt", "locales"],
+  "properties": {
+    "appId": {
+      "type": "string",
+      "description": "Apple App Store app ID or bundle ID"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this metadata was generated"
+    },
+    "generatedBy": {
+      "type": "string",
+      "description": "Tool or skill that generated this metadata (e.g., 'aso-skills/metadata-optimizer')"
+    },
+    "locales": {
+      "type": "object",
+      "description": "Locale-keyed metadata entries",
+      "additionalProperties": {
+        "$ref": "#/$defs/localeMetadata"
+      }
+    }
+  },
+  "$defs": {
+    "localeMetadata": {
+      "type": "object",
+      "required": ["title", "subtitle", "keywords"],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField",
+          "description": "App title (max 30 characters)"
+        },
+        "subtitle": {
+          "$ref": "#/$defs/textField",
+          "description": "App subtitle (max 30 characters)"
+        },
+        "keywords": {
+          "type": "object",
+          "required": ["text", "charCount", "maxChars"],
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Comma-separated keywords (no spaces after commas)"
+            },
+            "charCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "maxChars": {
+              "type": "integer",
+              "const": 100
+            },
+            "terms": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/keywordTerm"
+              }
+            }
+          }
+        },
+        "qualityScore": {
+          "$ref": "#/$defs/qualityScore"
+        }
+      }
+    },
+    "textField": {
+      "type": "object",
+      "required": ["text", "charCount", "maxChars"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "charCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxChars": {
+          "type": "integer"
+        }
+      }
+    },
+    "keywordTerm": {
+      "type": "object",
+      "required": ["keyword", "popularity"],
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "The keyword or phrase"
+        },
+        "popularity": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "description": "Apple Search Ads popularity score (5-100)"
+        },
+        "difficulty": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Ranking difficulty score (0-100)"
+        },
+        "currentRank": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Current rank position (null if not ranked)"
+        },
+        "opportunity": {
+          "type": "number",
+          "description": "Opportunity score: popularity * (100 - difficulty) / 100"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["title", "subtitle", "keywords", "title+keywords", "title+subtitle"],
+          "description": "Which metadata field(s) this keyword appears in"
+        }
+      }
+    },
+    "qualityScore": {
+      "type": "object",
+      "properties": {
+        "overall": {
+          "type": "string",
+          "pattern": "^[A-F][+-]?$",
+          "description": "Overall quality grade (A+ to F)"
+        },
+        "charUtilization": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Ratio of characters used to characters available"
+        },
+        "uniqueTerms": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of unique indexed terms across all fields"
+        },
+        "dedupRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Ratio of unique terms to total terms (1.0 = no duplicates)"
+        },
+        "gateResults": {
+          "type": "object",
+          "description": "Pass/fail/warn results for each quality gate",
+          "additionalProperties": {
+            "type": "string",
+            "enum": ["pass", "fail", "warn"]
+          }
+        }
+      }
+    }
+  }
+}

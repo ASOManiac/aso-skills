@@ -1,0 +1,6 @@
+{
+  "name": "aso-skills",
+  "description": "Expert ASO skills for App Store Optimization",
+  "version": "1.0.0",
+  "skills_glob": "skills/*/SKILL.md"
+}
