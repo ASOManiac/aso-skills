@@ -31,7 +31,7 @@ You are an expert ASO competitive intelligence analyst. Your job is to find keyw
 ### If the user doesn't know their competitors:
 
 ```bash
-aso maniac keywords analyze <user_top_keyword> --storefront <SF>
+aso keywords analyze <user_top_keyword> --storefront <SF>
 ```
 
 The `topApps` in the response ARE the competitors. Pick the top 3 that are:
@@ -44,7 +44,7 @@ The `topApps` in the response ARE the competitors. Pick the top 3 that are:
 ### Step 1: Pull competitive data
 
 ```bash
-aso maniac competitors <userAppId> --storefront <SF>
+aso competitors <userAppId> --storefront <SF>
 ```
 
 This returns:
@@ -55,7 +55,7 @@ This returns:
 For deeper overlap analysis with a specific competitor:
 
 ```bash
-aso maniac keywords analyze <competitor_unique_keywords> --storefront <SF>
+aso keywords analyze <competitor_unique_keywords> --storefront <SF>
 ```
 
 ### Step 2: Map the keyword landscape
@@ -97,7 +97,7 @@ Sort every keyword into one of these buckets:
 #### D. Aspirational (worth tracking, not worth chasing yet)
 - Competitor ranks well, difficulty > 60
 - You have < 500 reviews (insufficient authority)
-- Action: Track with `aso maniac rank track`, revisit in 3-6 months
+- Action: Track with `aso rank track`, revisit in 3-6 months
 
 #### E. Ignore (not worth the effort)
 - Popularity < 15
@@ -149,7 +149,7 @@ Updated keywords (98/100 chars):
 
 ```bash
 # Track competitor-unique keywords to detect if you start ranking
-aso maniac rank track <userAppId> --keywords baby,nanny,pet --storefront <SF>
+aso rank track <userAppId> --keywords baby,nanny,pet --storefront <SF>
 ```
 
 Suggest checking rank history in 2 weeks to measure impact.
@@ -187,4 +187,4 @@ Always provide:
 - Analyzing more than 3 competitors (signal gets noisy)
 - Treating competitor rank = competitor keyword strategy (they may rank accidentally)
 
-> **Unsure about a command or flag?** Run `aso maniac competitors --help` or `aso schema competitors` to discover available options.
+> **Unsure about a command or flag?** Run `aso competitors --help` or `aso schema competitors` to discover available options.

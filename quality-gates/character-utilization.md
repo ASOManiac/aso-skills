@@ -37,7 +37,7 @@ The title and subtitle have slightly more flexibility because they serve a dual 
 
 ## Fix
 
-1. Run `aso maniac keywords recommend <current_top_keyword> --limit 50` to find more keywords
+1. Run `aso keywords recommend <current_top_keyword> --limit 50` to find more keywords
 2. Sort by opportunity score (popularity * (100 - difficulty) / 100)
 3. Add the highest-opportunity keywords until you hit the character limit
 4. Remember: no spaces after commas in the keywords field (they count against the limit)

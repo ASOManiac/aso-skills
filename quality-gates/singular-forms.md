@@ -35,4 +35,4 @@ Over a 100-character keywords field, eliminating unnecessary plurals typically r
 
 1. Replace each plural with its singular form
 2. Use the recovered characters to add new keywords
-3. Verify with `aso maniac keywords analyze` that the singular form has equivalent or better popularity
+3. Verify with `aso keywords analyze` that the singular form has equivalent or better popularity

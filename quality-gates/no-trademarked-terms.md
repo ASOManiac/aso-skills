@@ -35,4 +35,4 @@ Common violations:
 1. Remove the trademarked term immediately
 2. Replace with generic descriptors: "Ring" → "doorbell", "Nest" → "smart home", "Arlo" → "wireless camera"
 3. Generic alternatives often have HIGHER search volume than the brand name anyway
-4. Run `aso maniac keywords analyze` on the generic alternative to confirm popularity
+4. Run `aso keywords analyze` on the generic alternative to confirm popularity

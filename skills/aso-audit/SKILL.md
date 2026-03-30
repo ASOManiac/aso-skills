@@ -38,10 +38,10 @@ Run these commands (in parallel where possible):
 aso metadata pull --app <appId> --version latest --dir ./metadata
 
 # Analyze all current keywords
-aso maniac keywords analyze <all_keywords_from_metadata> --storefront <SF>
+aso keywords analyze <all_keywords_from_metadata> --storefront <SF>
 
 # Dashboard overview (rankings, trends, keyword performance)
-aso maniac dashboard
+aso dashboard
 ```
 
 ### Step 2: Run ALL quality gates
@@ -232,4 +232,4 @@ Estimated impact: +15 indexed terms, locale coverage F→C
 - Not providing specific, actionable recommendations
 - Auditing without pulling keyword popularity/difficulty data
 
-> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

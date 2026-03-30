@@ -86,9 +86,9 @@ These share the same language but index separately for the US storefront. Strate
 - Use regional terminology (torch/flashlight, boot/trunk)
 
 ```bash
-aso maniac keywords recommend <seed> --storefront GB --limit 50
-aso maniac keywords recommend <seed> --storefront AU --limit 50
-aso maniac keywords recommend <seed> --storefront CA --limit 50
+aso keywords recommend <seed> --storefront GB --limit 50
+aso keywords recommend <seed> --storefront AU --limit 50
+aso keywords recommend <seed> --storefront CA --limit 50
 ```
 
 Pick keywords that are NOT already in en-US. Dedup across locales.
@@ -99,8 +99,8 @@ For **non-English locales** (es-MX, fr-CA, pt-BR, zh-Hans, zh-Hant, ja):
 2. Research popularity in that language:
 
 ```bash
-aso maniac keywords batch <translated_seeds> --storefronts MX
-aso maniac keywords batch <translated_seeds> --storefronts BR
+aso keywords batch <translated_seeds> --storefronts MX
+aso keywords batch <translated_seeds> --storefronts BR
 ```
 
 3. Mix strategies per locale:
@@ -187,4 +187,4 @@ fastlane/metadata/
 - Not verifying that non-English keywords are actually searched (popular in the target language)
 - Localizing title/subtitle without localizing the keywords field
 
-> **Unsure about a command or flag?** Run `aso maniac keywords --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso keywords --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

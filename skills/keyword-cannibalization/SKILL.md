@@ -65,14 +65,14 @@ Map every keyword to every app that targets it:
 For every keyword appearing in 2+ apps:
 
 ```bash
-aso maniac keywords analyze <conflicted_keyword> --storefront <SF>
+aso keywords analyze <conflicted_keyword> --storefront <SF>
 ```
 
 Then check rank for each app:
 
 ```bash
-aso maniac rank history <appId_1> --keyword <conflicted_keyword> --storefront <SF>
-aso maniac rank history <appId_2> --keyword <conflicted_keyword> --storefront <SF>
+aso rank history <appId_1> --keyword <conflicted_keyword> --storefront <SF>
+aso rank history <appId_2> --keyword <conflicted_keyword> --storefront <SF>
 ```
 
 Build a conflict resolution scorecard:
@@ -121,7 +121,7 @@ Shared (OK to keep in multiple apps — different user intent):
 For every keyword an app gives up, find a replacement:
 
 ```bash
-aso maniac keywords recommend <app_core_keyword> --storefront <SF> --limit 30
+aso keywords recommend <app_core_keyword> --storefront <SF> --limit 30
 ```
 
 The replacement should be:
@@ -172,8 +172,8 @@ aso metadata push --app <appId_3> --version latest --dir ./metadata-app3
 Track all affected keywords across all apps for 2-4 weeks:
 
 ```bash
-aso maniac rank track <appId_1> --keywords <reassigned_keywords> --storefront <SF>
-aso maniac rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
+aso rank track <appId_1> --keywords <reassigned_keywords> --storefront <SF>
+aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
 ```
 
 ## Output Format
@@ -193,4 +193,4 @@ aso maniac rank track <appId_2> --keywords <reassigned_keywords> --storefront <S
 - Assigning a keyword to an app where it's irrelevant (just because that app ranks higher)
 - Not setting up post-change monitoring
 
-> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

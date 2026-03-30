@@ -46,7 +46,7 @@ Record:
 ### Step 2: Analyze current keywords
 
 ```bash
-aso maniac keywords analyze <all_current_keywords> --storefront <SF>
+aso keywords analyze <all_current_keywords> --storefront <SF>
 ```
 
 Build a scorecard for every term currently in the metadata:
@@ -95,7 +95,7 @@ Quality Gates:
 For every keyword marked REMOVE or for empty character slots:
 
 ```bash
-aso maniac keywords recommend <top_current_keyword> --storefront <SF> --limit 50
+aso keywords recommend <top_current_keyword> --storefront <SF> --limit 50
 ```
 
 Score replacement candidates by opportunity and pick the best ones that:
@@ -177,7 +177,7 @@ Always provide:
 
 ## Red Flags
 
-> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
 
 - Making changes without pulling current metadata first
 - Changing the brand name portion of the title

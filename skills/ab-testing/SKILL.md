@@ -33,13 +33,13 @@ You are an expert in measuring the impact of App Store metadata changes. Your jo
 
 ```bash
 # Track current keyword rankings
-aso maniac rank track <appId> --keywords <test_keywords> --storefront <SF>
+aso rank track <appId> --keywords <test_keywords> --storefront <SF>
 
 # Pull current metadata to local directory
 aso metadata pull --app <appId> --version latest --dir ./metadata
 
 # Dashboard overview (rankings, trends, keyword performance)
-aso maniac dashboard
+aso dashboard
 ```
 
 **Critical:** Collect at least 7 days of baseline data before making changes. Without a baseline, you can't measure impact.
@@ -104,10 +104,10 @@ aso metadata push --app <appId> --version latest --dir ./metadata
 
 ```bash
 # Check daily for the first week
-aso maniac rank history <appId> --keyword "baby cam" --storefront US --from 2026-03-08
+aso rank history <appId> --keyword "baby cam" --storefront US --from 2026-03-08
 
 # Check all tracked keywords for unintended side effects
-aso maniac dashboard
+aso dashboard
 ```
 
 ### Step 5: Interpret results (after 14 days minimum)
@@ -172,4 +172,4 @@ Test log:
 - Not tracking existing keywords for side effects
 - Running a "test" without a clear hypothesis
 
-> **Unsure about a command or flag?** Run `aso maniac rank --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso rank --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

@@ -41,4 +41,4 @@ BAD:  "VPN Fast Secure Proxy Privacy"
 2. The descriptive phrase should include your #1 target keyword naturally
 3. Use the subtitle for your #2-3 keywords
 4. Push remaining keywords to the keywords field
-5. Run `aso maniac keywords analyze` to verify your title keywords have strong popularity
+5. Run `aso keywords analyze` to verify your title keywords have strong popularity

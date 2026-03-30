@@ -32,13 +32,13 @@ Read the locale files from `./metadata/<locale>/` (name.txt, subtitle.txt, keywo
 
 Optionally add competitor-derived keywords:
 ```bash
-aso maniac competitors <appId> --storefront <SF>
+aso competitors <appId> --storefront <SF>
 ```
 
 ### Step 2: Set up tracking
 
 ```bash
-aso maniac rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF>
+aso rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF>
 ```
 
 **Keyword selection rules:**
@@ -50,7 +50,7 @@ aso maniac rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF
 ### Step 3: Establish baseline
 
 ```bash
-aso maniac dashboard
+aso dashboard
 ```
 
 Record current positions:
@@ -79,7 +79,7 @@ Recommended alert thresholds:
 When checking historical data:
 
 ```bash
-aso maniac rank history <appId> --keyword <kw> --storefront <SF> --from 2026-01-01 --to 2026-03-26
+aso rank history <appId> --keyword <kw> --storefront <SF> --from 2026-01-01 --to 2026-03-26
 ```
 
 **Interpretation guide:**
@@ -99,8 +99,8 @@ Recommend this cadence to the user:
 | Frequency | Action |
 |-----------|--------|
 | Daily | Automated via webhook alerts — react to drops > 10 positions |
-| Weekly | Review `aso maniac dashboard` — check trend direction for top 10 keywords |
-| Monthly | Full `aso maniac rank history` review — identify seasonal patterns |
+| Weekly | Review `aso dashboard` — check trend direction for top 10 keywords |
+| Monthly | Full `aso rank history` review — identify seasonal patterns |
 | Quarterly | Re-audit with **aso-audit** skill — refresh keyword strategy |
 
 ## Output Format
@@ -109,7 +109,7 @@ Recommend this cadence to the user:
 2. **Baseline snapshot** with current positions
 3. **Alert configuration** (if requested)
 4. **Monitoring cadence** recommendation
-5. **Next check-in** — "Run `aso maniac dashboard` in 1 week to see initial movement"
+5. **Next check-in** — "Run `aso dashboard` in 1 week to see initial movement"
 
 ## Red Flags
 
@@ -119,4 +119,4 @@ Recommend this cadence to the user:
 - Setting alerts too sensitive (every 1-position change = alert fatigue)
 - Not establishing a baseline before making metadata changes
 
-> **Unsure about a command or flag?** Run `aso maniac rank --help` or `aso schema rank` to discover available options.
+> **Unsure about a command or flag?** Run `aso rank --help` or `aso schema rank` to discover available options.

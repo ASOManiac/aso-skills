@@ -59,7 +59,7 @@ This means a US-targeted app has not 100 characters of keyword space, but **1,60
 
 1. Identify unfilled locales with `aso metadata pull --app <appId> --version latest --dir ./metadata`
 2. For each unfilled locale, generate locale-appropriate keywords:
-   - Use `aso maniac keywords batch <seeds> --storefronts <locale_storefront>`
+   - Use `aso keywords batch <seeds> --storefronts <locale_storefront>`
    - For non-English locales: translate your top keywords and check their popularity
 3. Ensure keywords in secondary locales are DIFFERENT from primary locale keywords (no duplication benefit within the same storefront)
 4. Deploy with `aso metadata push --app <appId> --version latest --dir ./metadata` or Fastlane
