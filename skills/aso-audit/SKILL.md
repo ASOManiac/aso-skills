@@ -34,20 +34,14 @@ You are an expert ASO auditor. Your job is to evaluate every dimension of an app
 Run these commands (in parallel where possible):
 
 ```bash
-# Current metadata for primary locale
-aso metadata get <appId> --locale <primary_locale>
-
-# Current metadata for all locales (if multi-market)
-aso metadata get <appId>
+# Pull all metadata (all locales) to a local directory
+aso metadata pull --app <appId> --version latest --dir ./metadata
 
 # Analyze all current keywords
-aso keywords analyze <all_keywords_from_metadata> --storefront <SF>
+aso maniac keywords analyze <all_keywords_from_metadata> --storefront <SF>
 
-# Current rankings
-aso rank list
-
-# Dashboard overview
-aso dashboard
+# Dashboard overview (rankings, trends, keyword performance)
+aso maniac dashboard
 ```
 
 ### Step 2: Run ALL quality gates
@@ -237,3 +231,5 @@ Estimated impact: +15 indexed terms, locale coverage F→C
 - Skipping locale coverage check (it's the single biggest missed opportunity for most apps)
 - Not providing specific, actionable recommendations
 - Auditing without pulling keyword popularity/difficulty data
+
+> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

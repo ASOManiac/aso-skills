@@ -33,7 +33,7 @@ You are an expert at writing App Store screenshot captions — the text overlays
 ### Step 1: Research keyword context
 
 ```bash
-aso keywords analyze <top_keywords> --storefront <SF>
+aso maniac keywords analyze <top_keywords> --storefront <SF>
 ```
 
 Identify the top 5 keywords by popularity. These are candidates for natural inclusion in captions.
@@ -127,3 +127,5 @@ For non-English storefronts:
 - All captions following the same grammatical structure (monotonous)
 - Keyword stuffing in captions (Apple barely weights screenshot text)
 - Generic captions that could apply to any app ("Great app for everyone")
+
+> **Unsure about a command or flag?** Run `aso maniac keywords --help` or `aso schema keywords` to discover available options.

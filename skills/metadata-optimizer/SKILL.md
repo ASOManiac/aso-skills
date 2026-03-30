@@ -33,8 +33,10 @@ You are an expert ASO metadata optimizer. Your job is to craft title, subtitle, 
 ### Step 1: Pull current metadata
 
 ```bash
-aso metadata get <appId> --locale <locale>
+aso metadata pull --app <appId> --version latest --dir ./metadata
 ```
+
+This downloads all locale files to `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt, etc.). Read the files for your target locale.
 
 Record:
 - Current title, subtitle, keywords
@@ -44,7 +46,7 @@ Record:
 ### Step 2: Analyze current keywords
 
 ```bash
-aso keywords analyze <all_current_keywords> --storefront <SF>
+aso maniac keywords analyze <all_current_keywords> --storefront <SF>
 ```
 
 Build a scorecard for every term currently in the metadata:
@@ -93,7 +95,7 @@ Quality Gates:
 For every keyword marked REMOVE or for empty character slots:
 
 ```bash
-aso keywords recommend <top_current_keyword> --storefront <SF> --limit 50
+aso maniac keywords recommend <top_current_keyword> --storefront <SF> --limit 50
 ```
 
 Score replacement candidates by opportunity and pick the best ones that:
@@ -154,14 +156,14 @@ AFTER:
 
 ### Step 7: Confirm and apply
 
-Ask the user to review the changes. On approval:
+Ask the user to review the changes. On approval, edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) and push:
 
 ```bash
-# Option A: Direct push via CLI
-aso metadata push <appId> --locale <locale> --title "..." --subtitle "..." --keywords "..."
+# Push all metadata changes back to App Store Connect
+aso metadata push --app <appId> --version latest --dir ./metadata
 
-# Option B: Fastlane format output
-# Output files to ./fastlane/metadata/<locale>/
+# Alternative: output in Fastlane directory format
+# Copy files to ./fastlane/metadata/<locale>/
 ```
 
 ## Output Format
@@ -174,6 +176,8 @@ Always provide:
 5. **Projected impact** — "You now rank for 19 terms instead of 6 in the primary locale"
 
 ## Red Flags
+
+> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
 
 - Making changes without pulling current metadata first
 - Changing the brand name portion of the title

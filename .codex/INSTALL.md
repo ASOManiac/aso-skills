@@ -14,5 +14,5 @@ Install the ASO CLI:
 
 ```bash
 brew install asomaniac/tap/aso
-aso login
+aso maniac login
 ```

@@ -33,13 +33,13 @@ You are an expert in measuring the impact of App Store metadata changes. Your jo
 
 ```bash
 # Track current keyword rankings
-aso rank track <appId> --keywords <test_keywords> --storefront <SF>
+aso maniac rank track <appId> --keywords <test_keywords> --storefront <SF>
 
-# Record current metadata
-aso metadata get <appId> --locale <locale>
+# Pull current metadata to local directory
+aso metadata pull --app <appId> --version latest --dir ./metadata
 
-# Pull current analytics
-aso dashboard
+# Dashboard overview (rankings, trends, keyword performance)
+aso maniac dashboard
 ```
 
 **Critical:** Collect at least 7 days of baseline data before making changes. Without a baseline, you can't measure impact.
@@ -90,8 +90,8 @@ PPO runs true A/B tests with Apple splitting traffic. This is the only way to te
 ### Step 3: Execute the change
 
 ```bash
-# Apply the metadata change
-aso metadata push <appId> --locale <locale> --subtitle "Home Monitor & Baby Cam"
+# Edit the subtitle in ./metadata/<locale>/subtitle.txt, then push
+aso metadata push --app <appId> --version latest --dir ./metadata
 ```
 
 **Important timing rules:**
@@ -104,10 +104,10 @@ aso metadata push <appId> --locale <locale> --subtitle "Home Monitor & Baby Cam"
 
 ```bash
 # Check daily for the first week
-aso rank history <appId> --keyword "baby cam" --storefront US --from 2026-03-08
+aso maniac rank history <appId> --keyword "baby cam" --storefront US --from 2026-03-08
 
 # Check all tracked keywords for unintended side effects
-aso rank list
+aso maniac dashboard
 ```
 
 ### Step 5: Interpret results (after 14 days minimum)
@@ -171,3 +171,5 @@ Test log:
 - Confusing rank fluctuation with real impact (daily noise is normal)
 - Not tracking existing keywords for side effects
 - Running a "test" without a clear hypothesis
+
+> **Unsure about a command or flag?** Run `aso maniac rank --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

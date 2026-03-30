@@ -57,15 +57,37 @@ Install and authenticate the ASO CLI:
 
 ```bash
 brew install asomaniac/tap/aso
-aso login
+aso maniac login          # Browser OAuth (recommended)
+# or: aso maniac login --api-key <KEY>
+# or: export ASO_MANIAC_API_KEY=<KEY>
 ```
 
 Or install via Go:
 
 ```bash
 go install github.com/ASOManiac/aso-cli@latest
-aso login
+aso maniac login
 ```
+
+## Self-Discovery
+
+The CLI has two command families — skills must use the correct prefix:
+
+| Family | Prefix | Examples |
+|--------|--------|----------|
+| App Store Connect (ASC) | `aso <cmd>` | `aso metadata pull`, `aso builds`, `aso apps`, `aso webhooks` |
+| ASO Maniac (AI keywords) | `aso maniac <cmd>` | `aso maniac keywords`, `aso maniac competitors`, `aso maniac dashboard` |
+
+When you don't know the exact flags or subcommands, **ask the CLI**:
+
+```bash
+aso --help                        # All top-level commands
+aso maniac --help                 # All ASO Maniac commands
+aso maniac keywords --help        # Help for a specific command
+aso schema <query>                # Machine-readable API endpoint discovery (for agents)
+```
+
+Prefer `--help` and `aso schema` over guessing. The CLI is the source of truth.
 
 ## Usage
 

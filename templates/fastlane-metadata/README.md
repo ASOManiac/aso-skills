@@ -33,7 +33,7 @@ cd your-app-project
 fastlane deliver --skip_binary_upload --skip_screenshots
 
 # Option 2: Deploy via aso CLI
-aso metadata push <appId> --dir ./fastlane/metadata
+aso metadata push --app <appId> --version latest --dir ./fastlane/metadata
 
 # Option 3: Manual — copy-paste from files into App Store Connect
 ```

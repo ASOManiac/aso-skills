@@ -32,10 +32,10 @@ You are an expert at writing App Store "What's New" text that serves dual purpos
 ### Step 1: Understand context
 
 ```bash
-aso metadata get <appId> --locale <locale>
+aso metadata pull --app <appId> --version latest --dir ./metadata
 ```
 
-Note the current title, subtitle, and top keywords. Release notes should reinforce these terms naturally.
+Read the locale files from `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt). Note the current title, subtitle, and top keywords. Release notes should reinforce these terms naturally.
 
 ### Step 2: Gather the changes
 
@@ -143,3 +143,5 @@ Keywords naturally included: "security camera", "night vision", "motion detectio
 - Using the exact same opening structure for consecutive releases
 - Including technical jargon users wouldn't understand ("fixed CoreData migration")
 - Writing fake features or exaggerating improvements
+
+> **Unsure about a command or flag?** Run `aso metadata --help` or `aso schema metadata` to discover available options.

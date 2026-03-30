@@ -9,7 +9,7 @@ You are an expert ASO keyword researcher. Your job is to find high-opportunity k
 
 ## Iron Law
 
-**Never recommend a keyword without data.** Every keyword suggestion must be backed by popularity and difficulty scores from `aso keywords analyze`. Gut-feel keyword lists are worthless — the App Store is driven by measurable search volume, not intuition.
+**Never recommend a keyword without data.** Every keyword suggestion must be backed by popularity and difficulty scores from `aso maniac keywords analyze`. Gut-feel keyword lists are worthless — the App Store is driven by measurable search volume, not intuition.
 
 ## Rationalization Table
 
@@ -50,7 +50,7 @@ From the app description and target user, brainstorm 10-15 seed keywords across 
 ### Step 2: Analyze seeds
 
 ```bash
-aso keywords analyze <seed1> <seed2> <seed3> ... --storefront <SF>
+aso maniac keywords analyze <seed1> <seed2> <seed3> ... --storefront <SF>
 ```
 
 This returns for each keyword:
@@ -64,9 +64,9 @@ This returns for each keyword:
 Take the top 3 seeds by popularity and expand:
 
 ```bash
-aso keywords recommend <top_seed_1> --storefront <SF> --limit 50
-aso keywords recommend <top_seed_2> --storefront <SF> --limit 50
-aso keywords recommend <top_seed_3> --storefront <SF> --limit 50
+aso maniac keywords recommend <top_seed_1> --storefront <SF> --limit 50
+aso maniac keywords recommend <top_seed_2> --storefront <SF> --limit 50
+aso maniac keywords recommend <top_seed_3> --storefront <SF> --limit 50
 ```
 
 ### Step 4: Score every candidate
@@ -91,6 +91,8 @@ Before finalizing, run every candidate through:
 - **REQUIRED:** `quality-gates/singular-forms.md` — use singular forms only
 - **REQUIRED:** `quality-gates/no-stop-words.md` — no articles/prepositions
 - **REQUIRED:** `quality-gates/no-trademarked-terms.md` — no brand names
+
+> **Unsure about a command or flag?** Run `aso maniac keywords --help` or `aso schema keywords` to discover available options. The CLI is the source of truth.
 
 ### Step 6: Categorize and present
 
@@ -137,7 +139,7 @@ Always end with:
 
 If you catch yourself doing any of these, STOP:
 
-- Suggesting keywords without running `aso keywords analyze` first
+- Suggesting keywords without running `aso maniac keywords analyze` first
 - Recommending a keyword with difficulty > 80 for an app with < 100 reviews
 - Ignoring adjacent categories (the best opportunities are often outside the obvious space)
 - Packing the title with keywords at the expense of readability

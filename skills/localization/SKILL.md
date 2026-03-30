@@ -59,7 +59,7 @@ US storefront indexes these 10 locales:
 ### Step 2: Audit current locale coverage
 
 ```bash
-aso metadata get <appId>
+aso metadata pull --app <appId> --version latest --dir ./metadata
 ```
 
 Check each locale. Build a coverage table:
@@ -86,9 +86,9 @@ These share the same language but index separately for the US storefront. Strate
 - Use regional terminology (torch/flashlight, boot/trunk)
 
 ```bash
-aso keywords recommend <seed> --storefront GB --limit 50
-aso keywords recommend <seed> --storefront AU --limit 50
-aso keywords recommend <seed> --storefront CA --limit 50
+aso maniac keywords recommend <seed> --storefront GB --limit 50
+aso maniac keywords recommend <seed> --storefront AU --limit 50
+aso maniac keywords recommend <seed> --storefront CA --limit 50
 ```
 
 Pick keywords that are NOT already in en-US. Dedup across locales.
@@ -99,8 +99,8 @@ For **non-English locales** (es-MX, fr-CA, pt-BR, zh-Hans, zh-Hant, ja):
 2. Research popularity in that language:
 
 ```bash
-aso keywords batch <translated_seeds> --storefronts MX
-aso keywords batch <translated_seeds> --storefronts BR
+aso maniac keywords batch <translated_seeds> --storefronts MX
+aso maniac keywords batch <translated_seeds> --storefronts BR
 ```
 
 3. Mix strategies per locale:
@@ -149,11 +149,11 @@ Rule: Within the SAME storefront, the same English word in two locales provides 
 
 ### Step 6: Deploy
 
+Edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) for each locale, then push all at once:
+
 ```bash
-# Push all locales
-aso metadata push <appId> --locale en-GB --keywords "cctv,torch,colour,..."
-aso metadata push <appId> --locale es-MX --title "Homy - Cámara de Seguridad" --subtitle "Monitor de Hogar y Bebé" --keywords "vigilancia,seguridad,..."
-# ... repeat for each locale
+# Push all metadata changes back to App Store Connect
+aso metadata push --app <appId> --version latest --dir ./metadata
 ```
 
 Or output in Fastlane directory format:
@@ -186,3 +186,5 @@ fastlane/metadata/
 - Forgetting that en-GB and en-US are indexed separately for the US storefront (they are!)
 - Not verifying that non-English keywords are actually searched (popular in the target language)
 - Localizing title/subtitle without localizing the keywords field
+
+> **Unsure about a command or flag?** Run `aso maniac keywords --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

@@ -32,9 +32,9 @@ You are an expert in multi-app ASO portfolio management. Your job is to detect a
 ### Step 1: Pull metadata for all apps
 
 ```bash
-aso metadata get <appId_1> --locale <locale>
-aso metadata get <appId_2> --locale <locale>
-aso metadata get <appId_3> --locale <locale>
+aso metadata pull --app <appId_1> --version latest --dir ./metadata-app1
+aso metadata pull --app <appId_2> --version latest --dir ./metadata-app2
+aso metadata pull --app <appId_3> --version latest --dir ./metadata-app3
 # ... repeat for all apps
 ```
 
@@ -65,14 +65,14 @@ Map every keyword to every app that targets it:
 For every keyword appearing in 2+ apps:
 
 ```bash
-aso keywords analyze <conflicted_keyword> --storefront <SF>
+aso maniac keywords analyze <conflicted_keyword> --storefront <SF>
 ```
 
 Then check rank for each app:
 
 ```bash
-aso rank history <appId_1> --keyword <conflicted_keyword> --storefront <SF>
-aso rank history <appId_2> --keyword <conflicted_keyword> --storefront <SF>
+aso maniac rank history <appId_1> --keyword <conflicted_keyword> --storefront <SF>
+aso maniac rank history <appId_2> --keyword <conflicted_keyword> --storefront <SF>
 ```
 
 Build a conflict resolution scorecard:
@@ -121,7 +121,7 @@ Shared (OK to keep in multiple apps — different user intent):
 For every keyword an app gives up, find a replacement:
 
 ```bash
-aso keywords recommend <app_core_keyword> --storefront <SF> --limit 30
+aso maniac keywords recommend <app_core_keyword> --storefront <SF> --limit 30
 ```
 
 The replacement should be:
@@ -161,10 +161,10 @@ Projected impact:
 ### Step 7: Apply changes
 
 ```bash
-# Update each app's metadata
-aso metadata push <appId_1> --locale <locale> --keywords "..."
-aso metadata push <appId_2> --locale <locale> --keywords "..."
-aso metadata push <appId_3> --locale <locale> --keywords "..."
+# Edit keywords.txt in each app's metadata directory, then push
+aso metadata push --app <appId_1> --version latest --dir ./metadata-app1
+aso metadata push --app <appId_2> --version latest --dir ./metadata-app2
+aso metadata push --app <appId_3> --version latest --dir ./metadata-app3
 ```
 
 ### Step 8: Monitor
@@ -172,8 +172,8 @@ aso metadata push <appId_3> --locale <locale> --keywords "..."
 Track all affected keywords across all apps for 2-4 weeks:
 
 ```bash
-aso rank track <appId_1> --keywords <reassigned_keywords> --storefront <SF>
-aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
+aso maniac rank track <appId_1> --keywords <reassigned_keywords> --storefront <SF>
+aso maniac rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
 ```
 
 ## Output Format
@@ -192,3 +192,5 @@ aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
 - Removing keywords without providing replacements
 - Assigning a keyword to an app where it's irrelevant (just because that app ranks higher)
 - Not setting up post-change monitoring
+
+> **Unsure about a command or flag?** Run `aso maniac --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

@@ -25,20 +25,20 @@ You are an ASO rank monitoring specialist. Your job is to help users set up syst
 If the user provides a keyword list, use it. Otherwise, derive from current metadata:
 
 ```bash
-aso metadata get <appId> --locale <locale>
+aso metadata pull --app <appId> --version latest --dir ./metadata
 ```
 
-Extract all keywords from title + subtitle + keywords field. These are your tracking candidates.
+Read the locale files from `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt). Extract all keywords from title + subtitle + keywords field. These are your tracking candidates.
 
 Optionally add competitor-derived keywords:
 ```bash
-aso competitors <appId> --storefront <SF>
+aso maniac competitors <appId> --storefront <SF>
 ```
 
 ### Step 2: Set up tracking
 
 ```bash
-aso rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF>
+aso maniac rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF>
 ```
 
 **Keyword selection rules:**
@@ -50,7 +50,7 @@ aso rank track <appId> --keywords <kw1>,<kw2>,<kw3>,...  --storefront <SF>
 ### Step 3: Establish baseline
 
 ```bash
-aso rank list
+aso maniac dashboard
 ```
 
 Record current positions:
@@ -66,7 +66,7 @@ Record current positions:
 ### Step 4: Set up alerts (optional)
 
 ```bash
-aso webhooks create <webhook_url> --events rank.changed,rank.dropped,rank.improved
+aso webhooks create --app <appId> --name "Rank Alerts" --url "<webhook_url>" --events "rank.changed,rank.dropped,rank.improved"
 ```
 
 Recommended alert thresholds:
@@ -79,7 +79,7 @@ Recommended alert thresholds:
 When checking historical data:
 
 ```bash
-aso rank history <appId> --keyword <kw> --storefront <SF> --from 2026-01-01 --to 2026-03-26
+aso maniac rank history <appId> --keyword <kw> --storefront <SF> --from 2026-01-01 --to 2026-03-26
 ```
 
 **Interpretation guide:**
@@ -99,8 +99,8 @@ Recommend this cadence to the user:
 | Frequency | Action |
 |-----------|--------|
 | Daily | Automated via webhook alerts — react to drops > 10 positions |
-| Weekly | Review `aso rank list` — check trend direction for top 10 keywords |
-| Monthly | Full `aso rank history` review — identify seasonal patterns |
+| Weekly | Review `aso maniac dashboard` — check trend direction for top 10 keywords |
+| Monthly | Full `aso maniac rank history` review — identify seasonal patterns |
 | Quarterly | Re-audit with **aso-audit** skill — refresh keyword strategy |
 
 ## Output Format
@@ -109,7 +109,7 @@ Recommend this cadence to the user:
 2. **Baseline snapshot** with current positions
 3. **Alert configuration** (if requested)
 4. **Monitoring cadence** recommendation
-5. **Next check-in** — "Run `aso rank list` in 1 week to see initial movement"
+5. **Next check-in** — "Run `aso maniac dashboard` in 1 week to see initial movement"
 
 ## Red Flags
 
@@ -118,3 +118,5 @@ Recommend this cadence to the user:
 - Not tracking title/subtitle keywords (your most important terms)
 - Setting alerts too sensitive (every 1-position change = alert fatigue)
 - Not establishing a baseline before making metadata changes
+
+> **Unsure about a command or flag?** Run `aso maniac rank --help` or `aso schema rank` to discover available options.

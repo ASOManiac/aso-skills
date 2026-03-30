@@ -43,5 +43,5 @@ That's roughly 25-39 unique terms per locale. Every duplicate reduces this count
 1. List all duplicated terms
 2. For each duplicate, decide which field should keep it (title > subtitle > keywords)
 3. Replace removed duplicates with new high-opportunity keywords
-4. Run `aso keywords recommend` to find replacements
+4. Run `aso maniac keywords recommend` to find replacements
 5. Re-check the dedup ratio after changes

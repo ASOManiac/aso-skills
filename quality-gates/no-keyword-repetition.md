@@ -48,4 +48,4 @@ None. This rule has no exceptions. Even common words like "app" or "free" should
 1. Identify which field the repeated word has the highest impact in (title > subtitle > keywords)
 2. Keep the word in the highest-priority field only
 3. Replace it in lower-priority fields with a new keyword from your research
-4. Re-run `aso keywords analyze` on the replacement candidates to pick the best alternative
+4. Re-run `aso maniac keywords analyze` on the replacement candidates to pick the best alternative
