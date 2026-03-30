@@ -71,8 +71,8 @@ aso keywords analyze <conflicted_keyword> --storefront <SF>
 Then check rank for each app:
 
 ```bash
-aso rank history <appId_1> --keyword <conflicted_keyword> --storefront <SF>
-aso rank history <appId_2> --keyword <conflicted_keyword> --storefront <SF>
+aso rank history <appId_1> --keyword-id <keyword_id> --storefront <SF> --from <start_date> --to <end_date>
+aso rank history <appId_2> --keyword-id <keyword_id> --storefront <SF> --from <start_date> --to <end_date>
 ```
 
 Build a conflict resolution scorecard:

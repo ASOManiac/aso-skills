@@ -79,7 +79,7 @@ Recommended alert thresholds:
 When checking historical data:
 
 ```bash
-aso rank history <appId> --keyword <kw> --storefront <SF> --from 2026-01-01 --to 2026-03-26
+aso rank history <appId> --keyword-id <keyword_id> --storefront <SF> --from 2026-01-01 --to 2026-03-26
 ```
 
 **Interpretation guide:**

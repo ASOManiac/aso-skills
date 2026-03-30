@@ -104,7 +104,7 @@ aso metadata push --app <appId> --version latest --dir ./metadata
 
 ```bash
 # Check daily for the first week
-aso rank history <appId> --keyword "baby cam" --storefront US --from 2026-03-08
+aso rank history <appId> --keyword-id <keyword_id> --storefront US --from 2026-03-08 --to 2026-03-22
 
 # Check all tracked keywords for unintended side effects
 aso dashboard
