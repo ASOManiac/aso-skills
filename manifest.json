@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "install": {
+    "universal": "npx skills add ASOManiac/aso-skills",
+    "claude": "claude plugin add ASOManiac/aso-skills",
+    "manual": "git clone https://github.com/ASOManiac/aso-skills.git"
+  },
+  "skills": [
+    {
+      "name": "ab-testing",
+      "description": "Use when the user asks to A/B test App Store metadata, compare listing variants, or measure the impact of ASO changes..."
+    },
+    {
+      "name": "aso-audit",
+      "description": "Use when the user asks for an ASO review, health check, audit, or assessment. Triggers on \"audit my ASO\", \"how is my ..."
+    },
+    {
+      "name": "competitor-analysis",
+      "description": "Use when the user asks to analyze competitors, compare apps, find keyword gaps, or understand competitive positioning..."
+    },
+    {
+      "name": "keyword-cannibalization",
+      "description": "Use when the user has multiple apps competing for the same keywords, or asks about portfolio keyword strategy, cross-..."
+    },
+    {
+      "name": "keyword-research",
+      "description": "Use when the user asks to find, discover, research, or brainstorm keywords for an iOS/macOS app. Triggers on question..."
+    },
+    {
+      "name": "localization",
+      "description": "Use when the user asks about multi-locale ASO, international expansion, localization strategy, or cross-locale keywor..."
+    },
+    {
+      "name": "metadata-optimizer",
+      "description": "Use when the user asks to optimize, improve, or update app metadata (title, subtitle, keywords field). Triggers on \"o..."
+    },
+    {
+      "name": "rank-tracker",
+      "description": "Use when the user asks to track keyword rankings, monitor positions, set up alerts, or check ranking history. Trigger..."
+    },
+    {
+      "name": "release-notes",
+      "description": "Use when the user asks to write release notes, \"What's New\" text, version update text, or changelog for the App Store..."
+    },
+    {
+      "name": "screenshot-text",
+      "description": "Use when the user asks about App Store screenshot captions, text overlays, or screenshot strategy. Triggers on \"write..."
+    }
+  ],
+  "qualityGates": [
+    "Quality Gate: Character Utilization",
+    "Quality Gate: Cross-Field Deduplication",
+    "Quality Gate: Indexed Character Efficiency",
+    "Quality Gate: Locale Coverage",
+    "Quality Gate: Natural Language Title",
+    "Quality Gate: No Keyword Repetition",
+    "Quality Gate: No Spaces After Commas",
+    "Quality Gate: No Stop Words in Keywords Field",
+    "Quality Gate: No Trademarked Terms",
+    "Quality Gate: Singular Forms",
+    "Quality Gate: Subtitle Value Proposition"
+  ]
+}
