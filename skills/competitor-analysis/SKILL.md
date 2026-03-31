@@ -45,6 +45,8 @@ The `topApps` in the response ARE the competitors. Pick the top 3 that are:
 
 ```bash
 aso competitors <userAppId> --storefront <SF>
+# Summary without full overlap list:
+aso competitors <userAppId> --storefront <SF> --exclude keywordOverlap
 ```
 
 This returns:

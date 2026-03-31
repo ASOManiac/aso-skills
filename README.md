@@ -88,6 +88,17 @@ aso schema <query>                # Machine-readable API endpoint discovery (for
 
 Prefer `--help` and `aso schema` over guessing. The CLI is the source of truth.
 
+### Output Filtering
+
+All intelligence commands support `--exclude` to strip verbose fields from JSON output:
+
+```bash
+aso keywords analyze camera --exclude topApps,relatedSearches   # Compact view
+aso competitors 123456789 --exclude keywordOverlap              # Summary only
+```
+
+This is especially useful for AI agents to reduce token usage when verbose arrays like `topApps` aren't needed.
+
 ## Usage
 
 Once installed, just ask your AI agent naturally:
