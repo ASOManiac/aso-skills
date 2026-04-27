@@ -35,7 +35,7 @@ Important distinction: localizing **metadata** (keywords, title, subtitle) works
 
 ### Step 1: Map the indexing landscape
 
-**REQUIRED:** `quality-gates/locale-coverage.md`
+**REQUIRED:** `../../quality-gates/locale-coverage.md`
 
 For the target storefront, identify all indexed locales:
 

@@ -90,9 +90,9 @@ opportunity = popularity × (100 - difficulty) / 100
 
 Before finalizing, run every candidate through:
 
-- **REQUIRED:** `quality-gates/singular-forms.md` — use singular forms only
-- **REQUIRED:** `quality-gates/no-stop-words.md` — no articles/prepositions
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md` — no brand names
+- **REQUIRED:** `../../quality-gates/singular-forms.md` — use singular forms only
+- **REQUIRED:** `../../quality-gates/no-stop-words.md` — no articles/prepositions
+- **REQUIRED:** `../../quality-gates/no-trademarked-terms.md` — no brand names
 
 > **Unsure about a command or flag?** Run `aso keywords --help` or `aso schema keywords` to discover available options. The CLI is the source of truth.
 

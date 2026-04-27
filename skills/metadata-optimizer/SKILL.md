@@ -66,15 +66,15 @@ Build a scorecard for every term currently in the metadata:
 
 Check EVERY quality gate and report violations:
 
-- **REQUIRED:** `quality-gates/no-keyword-repetition.md`
-- **REQUIRED:** `quality-gates/character-utilization.md`
-- **REQUIRED:** `quality-gates/singular-forms.md`
-- **REQUIRED:** `quality-gates/no-stop-words.md`
-- **REQUIRED:** `quality-gates/no-spaces-after-commas.md`
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md`
-- **REQUIRED:** `quality-gates/natural-language-title.md`
-- **REQUIRED:** `quality-gates/subtitle-value-prop.md`
-- **REQUIRED:** `quality-gates/cross-field-dedup.md`
+- **REQUIRED:** `../../quality-gates/no-keyword-repetition.md`
+- **REQUIRED:** `../../quality-gates/character-utilization.md`
+- **REQUIRED:** `../../quality-gates/singular-forms.md`
+- **REQUIRED:** `../../quality-gates/no-stop-words.md`
+- **REQUIRED:** `../../quality-gates/no-spaces-after-commas.md`
+- **REQUIRED:** `../../quality-gates/no-trademarked-terms.md`
+- **REQUIRED:** `../../quality-gates/natural-language-title.md`
+- **REQUIRED:** `../../quality-gates/subtitle-value-prop.md`
+- **REQUIRED:** `../../quality-gates/cross-field-dedup.md`
 
 Present violations as a checklist:
 ```

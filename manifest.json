@@ -8,43 +8,43 @@
   "skills": [
     {
       "name": "ab-testing",
-      "description": "Use when the user asks to A/B test App Store metadata, compare listing variants, or measure the impact of ASO changes..."
+      "description": "Use when the user asks to A/B test App Store metadata, compare listing variants, or measure the impact of ASO changes. Designs controlled experiments that isolate keyword and metadata changes."
     },
     {
       "name": "aso-audit",
-      "description": "Use when the user asks for an ASO review, health check, audit, or assessment. Triggers on \"audit my ASO\", \"how is my ..."
+      "description": "Use when the user asks for an ASO review, health check, audit, or assessment. Grades keyword quality, field utilization, metadata craft, locale coverage, and competitive position on an A-F scale."
     },
     {
       "name": "competitor-analysis",
-      "description": "Use when the user asks to analyze competitors, compare apps, find keyword gaps, or understand competitive positioning..."
+      "description": "Use when the user asks to analyze competitors, compare apps, find keyword gaps, or understand competitive positioning. Identifies quick wins, battlegrounds, and defensive keywords."
     },
     {
       "name": "keyword-cannibalization",
-      "description": "Use when the user has multiple apps competing for the same keywords, or asks about portfolio keyword strategy, cross-..."
+      "description": "Use when the user has multiple apps competing for the same keywords, or asks about portfolio keyword strategy. Detects conflicts and assigns keyword ownership to the strongest contender."
     },
     {
       "name": "keyword-research",
-      "description": "Use when the user asks to find, discover, research, or brainstorm keywords for an iOS/macOS app. Triggers on question..."
+      "description": "Use when the user asks to find, discover, research, or brainstorm keywords for an iOS/macOS app. Scores popularity, difficulty, and opportunity using real Apple Search Ads data."
     },
     {
       "name": "localization",
-      "description": "Use when the user asks about multi-locale ASO, international expansion, localization strategy, or cross-locale keywor..."
+      "description": "Use when the user asks about multi-locale ASO, international expansion, localization strategy, or cross-locale keyword indexing. Exploits Apple's locale indexing rules to multiply keyword coverage."
     },
     {
       "name": "metadata-optimizer",
-      "description": "Use when the user asks to optimize, improve, or update app metadata (title, subtitle, keywords field). Triggers on \"o..."
+      "description": "Use when the user asks to optimize, improve, or update app metadata (title, subtitle, keywords field). Runs 11 quality gates and maximizes indexed keyword count."
     },
     {
       "name": "rank-tracker",
-      "description": "Use when the user asks to track keyword rankings, monitor positions, set up alerts, or check ranking history. Trigger..."
+      "description": "Use when the user asks to track keyword rankings, monitor positions, or check ranking history. Sets up systematic tracking with baseline snapshots and monitoring cadence."
     },
     {
       "name": "release-notes",
-      "description": "Use when the user asks to write release notes, \"What's New\" text, version update text, or changelog for the App Store..."
+      "description": "Use when the user asks to write release notes, \"What's New\" text, or version changelog for the App Store. Writes natural-sounding update text with subtle keyword integration."
     },
     {
       "name": "screenshot-text",
-      "description": "Use when the user asks about App Store screenshot captions, text overlays, or screenshot strategy. Triggers on \"write..."
+      "description": "Use when the user asks about App Store screenshot captions, text overlays, or screenshot strategy. Writes benefit-first captions under 40 characters that tell a progressive story."
     }
   ],
   "qualityGates": [

@@ -19,7 +19,7 @@ You are an expert ASO competitive intelligence analyst. Your job is to find keyw
 | "The #1 app has the best keywords" | The #1 app often ranks on brand strength, not keyword strategy. Their metadata may be lazy. |
 | "More competitors = better analysis" | 2-3 well-chosen competitors give cleaner signal than 10 random ones. |
 | "I should compare every keyword" | Focus on keywords where the user has a realistic chance. Difficulty > 80 with 50 reviews? Skip it. |
-| "Competitor brand keywords are good targets" | Never. Trademarked terms get you rejected. See `quality-gates/no-trademarked-terms.md`. |
+| "Competitor brand keywords are good targets" | Never. Trademarked terms get you rejected. See `../../quality-gates/no-trademarked-terms.md`. |
 
 ## Intake — Ask Before Acting
 

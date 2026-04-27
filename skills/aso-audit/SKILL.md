@@ -48,17 +48,17 @@ aso dashboard
 
 Check every gate and record pass/fail/warn:
 
-- **REQUIRED:** `quality-gates/no-keyword-repetition.md`
-- **REQUIRED:** `quality-gates/character-utilization.md`
-- **REQUIRED:** `quality-gates/singular-forms.md`
-- **REQUIRED:** `quality-gates/no-stop-words.md`
-- **REQUIRED:** `quality-gates/no-spaces-after-commas.md`
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md`
-- **REQUIRED:** `quality-gates/locale-coverage.md`
-- **REQUIRED:** `quality-gates/natural-language-title.md`
-- **REQUIRED:** `quality-gates/subtitle-value-prop.md`
-- **REQUIRED:** `quality-gates/cross-field-dedup.md`
-- **REQUIRED:** `quality-gates/indexed-char-efficiency.md`
+- **REQUIRED:** `../../quality-gates/no-keyword-repetition.md`
+- **REQUIRED:** `../../quality-gates/character-utilization.md`
+- **REQUIRED:** `../../quality-gates/singular-forms.md`
+- **REQUIRED:** `../../quality-gates/no-stop-words.md`
+- **REQUIRED:** `../../quality-gates/no-spaces-after-commas.md`
+- **REQUIRED:** `../../quality-gates/no-trademarked-terms.md`
+- **REQUIRED:** `../../quality-gates/locale-coverage.md`
+- **REQUIRED:** `../../quality-gates/natural-language-title.md`
+- **REQUIRED:** `../../quality-gates/subtitle-value-prop.md`
+- **REQUIRED:** `../../quality-gates/cross-field-dedup.md`
+- **REQUIRED:** `../../quality-gates/indexed-char-efficiency.md`
 
 ### Step 3: Score each dimension
 
