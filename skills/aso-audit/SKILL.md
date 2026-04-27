@@ -35,7 +35,7 @@ Run these commands (in parallel where possible):
 
 ```bash
 # Pull all metadata (all locales) to a local directory
-aso metadata pull --app <appId> --version latest --dir ./metadata
+aso metadata pull --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 
 # Analyze all current keywords
 aso keywords analyze <all_keywords_from_metadata> --storefront <SF>

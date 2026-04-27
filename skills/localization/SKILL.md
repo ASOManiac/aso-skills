@@ -59,7 +59,7 @@ US storefront indexes these 10 locales:
 ### Step 2: Audit current locale coverage
 
 ```bash
-aso metadata pull --app <appId> --version latest --dir ./metadata
+aso metadata pull --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 ```
 
 Check each locale. Build a coverage table:
@@ -153,7 +153,7 @@ Edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keyword
 
 ```bash
 # Push all metadata changes back to App Store Connect
-aso metadata push --app <appId> --version latest --dir ./metadata
+aso metadata push --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 ```
 
 Or output in Fastlane directory format:

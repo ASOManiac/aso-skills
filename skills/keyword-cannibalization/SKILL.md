@@ -32,9 +32,10 @@ You are an expert in multi-app ASO portfolio management. Your job is to detect a
 ### Step 1: Pull metadata for all apps
 
 ```bash
-aso metadata pull --app <appId_1> --version latest --dir ./metadata-app1
-aso metadata pull --app <appId_2> --version latest --dir ./metadata-app2
-aso metadata pull --app <appId_3> --version latest --dir ./metadata-app3
+aso metadata pull --app <appId_1> --version "<VERSION>" --dir ./metadata-app1
+aso metadata pull --app <appId_2> --version "<VERSION>" --dir ./metadata-app2
+aso metadata pull --app <appId_3> --version "<VERSION>" --dir ./metadata-app3
+# Replace <VERSION> with each app's current version string (e.g. "2.4.1")
 # ... repeat for all apps
 ```
 
@@ -162,9 +163,9 @@ Projected impact:
 
 ```bash
 # Edit keywords.txt in each app's metadata directory, then push
-aso metadata push --app <appId_1> --version latest --dir ./metadata-app1
-aso metadata push --app <appId_2> --version latest --dir ./metadata-app2
-aso metadata push --app <appId_3> --version latest --dir ./metadata-app3
+aso metadata push --app <appId_1> --version "<VERSION>" --dir ./metadata-app1
+aso metadata push --app <appId_2> --version "<VERSION>" --dir ./metadata-app2
+aso metadata push --app <appId_3> --version "<VERSION>" --dir ./metadata-app3
 ```
 
 ### Step 8: Monitor

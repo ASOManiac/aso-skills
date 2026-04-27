@@ -36,7 +36,7 @@ You are an expert in measuring the impact of App Store metadata changes. Your jo
 aso rank track <appId> --keywords <test_keywords> --storefront <SF>
 
 # Pull current metadata to local directory
-aso metadata pull --app <appId> --version latest --dir ./metadata
+aso metadata pull --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 
 # Dashboard overview (rankings, trends, keyword performance)
 aso dashboard
@@ -91,7 +91,7 @@ PPO runs true A/B tests with Apple splitting traffic. This is the only way to te
 
 ```bash
 # Edit the subtitle in ./metadata/<locale>/subtitle.txt, then push
-aso metadata push --app <appId> --version latest --dir ./metadata
+aso metadata push --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 ```
 
 **Important timing rules:**

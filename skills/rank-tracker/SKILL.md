@@ -25,7 +25,8 @@ You are an ASO rank monitoring specialist. Your job is to help users set up syst
 If the user provides a keyword list, use it. Otherwise, derive from current metadata:
 
 ```bash
-aso metadata pull --app <appId> --version latest --dir ./metadata
+aso metadata pull --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
+# Replace <CURRENT_VERSION> with the app's current version string (e.g. "2.4.1")
 ```
 
 Read the locale files from `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt). Extract all keywords from title + subtitle + keywords field. These are your tracking candidates.
@@ -63,16 +64,14 @@ Record current positions:
 | baby cam | US | — | 44 | Not ranked (new) |
 ```
 
-### Step 4: Set up alerts (optional)
+### Step 4: Set up monitoring cadence (alerts)
 
-```bash
-aso webhooks create --app <appId> --name "Rank Alerts" --url "<webhook_url>" --events "rank.changed,rank.dropped,rank.improved"
-```
+> **Note:** The `aso webhooks` command manages **App Store Connect** webhooks (build status, subscription events, etc.) — it does not support ASO-specific rank-change events. Keyword rank alerting is done by checking `aso dashboard` on a schedule.
 
-Recommended alert thresholds:
-- **rank.dropped**: Notify when any keyword drops 10+ positions in a day
-- **rank.improved**: Notify when any keyword improves 5+ positions
-- **rank.changed**: General changelog (can be noisy — use sparingly)
+**Recommended monitoring approach:**
+- Run `aso dashboard` daily (manually or via a cron job / CI schedule)
+- Compare today's positions against yesterday's baseline
+- Flag any keyword that dropped 10+ positions or improved 5+ positions
 
 ### Step 5: Interpret rank history
 
