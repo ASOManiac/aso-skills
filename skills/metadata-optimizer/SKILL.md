@@ -168,6 +168,8 @@ aso metadata push --app <appId> --version "<CURRENT_VERSION>" --dir ./metadata
 
 ## Output Format
 
+When producing structured output (e.g. for automation), use the schema at `../../templates/enriched-metadata.schema.json` for the enriched metadata JSON format.
+
 Always provide:
 1. **Current state** with quality gate results
 2. **Optimized state** with all gates passing

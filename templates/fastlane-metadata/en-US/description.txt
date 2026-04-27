@@ -1,0 +1,7 @@
+Your full App Store description goes here.
+
+Lead with the most compelling benefit. Apple does not index the description
+for keyword search, but it influences conversion rate.
+
+Keep the first 3 lines impactful — that is all users see before tapping
+"more". Use short paragraphs and bullet points for readability.

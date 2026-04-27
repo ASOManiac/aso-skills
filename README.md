@@ -40,15 +40,12 @@ Every metadata change passes through 11 quality gates — binary pass/fail rules
 ## Install
 
 ```bash
-# Universal (works with any AI coding tool)
+# Via skills.sh (if registered)
 npx skills add ASOManiac/aso-skills
 
-# Claude Code
-claude plugin add ASOManiac/aso-skills
-
-# Manual
+# Manual (works with any AI coding tool)
 git clone https://github.com/ASOManiac/aso-skills.git
-cp -r aso-skills/skills/ ~/.claude/skills/aso/
+cp -r aso-skills/skills/ .claude/skills/aso/
 ```
 
 ## Prerequisites
@@ -71,22 +68,22 @@ aso auth maniac login
 
 ## Self-Discovery
 
-The CLI has two command families — skills must use the correct prefix:
+The CLI has two command families — all under the `aso` binary:
 
-| Family | Prefix | Examples |
-|--------|--------|----------|
-| App Store Connect (ASC) | `aso <cmd>` | `aso metadata pull`, `aso builds`, `aso apps`, `aso webhooks` |
-| ASO Maniac (AI keywords) | `aso <cmd>` | `aso keywords`, `aso competitors`, `aso dashboard` |
+| Family | Commands | Data source |
+|--------|----------|-------------|
+| **ASO Maniac** (keyword intelligence) | `aso keywords`, `aso competitors`, `aso rank`, `aso trends`, `aso dashboard` | [asomaniac.com](https://asomaniac.com) API |
+| **App Store Connect** (ASC) | `aso metadata`, `aso apps`, `aso builds`, `aso webhooks`, `aso analytics`, etc. | Apple ASC API |
 
 When you don't know the exact flags or subcommands, **ask the CLI**:
 
 ```bash
 aso --help                        # All top-level commands (intelligence commands listed first)
 aso keywords --help               # Help for a specific command
-aso schema <query>                # Machine-readable API endpoint discovery (for agents)
+aso schema <query>                # Machine-readable ASC API endpoint discovery (ASC-only, not ASO Maniac)
 ```
 
-Prefer `--help` and `aso schema` over guessing. The CLI is the source of truth.
+Prefer `--help` over guessing. The CLI is the source of truth. Note that `aso schema` only discovers **App Store Connect** endpoints — ASO Maniac commands use `--help` for self-documentation.
 
 ### Output Filtering
 

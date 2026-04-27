@@ -1,0 +1,5 @@
+What's new in this version:
+
+- Describe the most important change first
+- Frame bug fixes as user benefits
+- Keep it under 500 characters for best readability

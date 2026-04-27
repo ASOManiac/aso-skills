@@ -1,0 +1,2 @@
+Promotional text appears above the description. Can be updated without
+a new app version. Use for seasonal messaging or feature announcements.
