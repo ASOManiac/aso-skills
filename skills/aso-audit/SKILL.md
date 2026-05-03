@@ -38,15 +38,18 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 Run these commands (in parallel where possible):
 
 ```bash
+# Portfolio overview — list all apps under this account
+aso apps list --json
+
 # Pull all metadata (all locales) to a local directory
 VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
 aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
 
+# Per-app metadata snapshot (name, subtitle, primary locale, category)
+aso apps view --id <appId>
+
 # Analyze all current keywords
 aso keywords analyze <all_keywords_from_metadata> --storefront <SF>
-
-# Dashboard overview (rankings, trends, keyword performance)
-aso dashboard
 ```
 
 ### Step 2: Run ALL quality gates

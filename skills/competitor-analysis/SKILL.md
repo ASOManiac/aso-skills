@@ -47,10 +47,16 @@ The `topApps` in the response ARE the competitors. Pick the top 3 that are:
 
 ### Step 1: Pull competitive data
 
+The competitor-overlap endpoint is exposed by the ASO Maniac REST API directly. Call it with `curl` (the `aso` CLI no longer ships a `competitors` verb):
+
 ```bash
-aso competitors <userAppId> --storefront <SF>
-# Summary without full overlap list:
-aso competitors <userAppId> --storefront <SF> --exclude keywordOverlap
+# Full competitor overlap (shared / unique keywords, top-app context)
+curl -sS -H "Authorization: Bearer $ASO_MANIAC_API_KEY" \
+  "https://asomaniac.com/api/v1/competitors/<userAppId>?storefront=<SF>"
+
+# Summary without the full keywordOverlap array:
+curl -sS -H "Authorization: Bearer $ASO_MANIAC_API_KEY" \
+  "https://asomaniac.com/api/v1/competitors/<userAppId>?storefront=<SF>&exclude=keywordOverlap"
 ```
 
 This returns:
@@ -188,4 +194,4 @@ Always provide:
 - Analyzing more than 3 competitors (signal gets noisy)
 - Treating competitor rank = competitor keyword strategy (they may rank accidentally)
 
-> **Unsure about a command or flag?** Run `aso competitors --help` or `aso schema competitors` to discover available options.
+> **Unsure about a CLI command or flag?** Run `aso --help`, `aso keywords --help`, or `aso schema <query>` to discover available options. The competitor-overlap data ships only via the REST API (`GET /api/v1/competitors/<appId>`), not the CLI — see Step 1 above.

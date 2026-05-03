@@ -12,4 +12,4 @@ Run this checklist before executing any `aso` command. If any check fails, resol
    - Run `aso auth maniac login`. This opens https://asomaniac.com/cli/auth in the browser.
    - Wait for the user to complete the OAuth flow before retrying any premium command.
 
-3. **Auth error mid-skill?** If a premium command (`aso keywords ...`, `aso competitors ...`, `aso dashboard ...`, etc.) fails with `UNAUTHORIZED`, 401, or "Set ASO_MANIAC_API_KEY", repeat step 2 then retry the failing command.
+3. **Auth error mid-skill?** If a premium command (`aso keywords ...`, etc.) fails with `UNAUTHORIZED`, 401, or "Set ASO_MANIAC_API_KEY", repeat step 2 then retry the failing command.

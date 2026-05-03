@@ -72,7 +72,7 @@ The CLI has two command families — skills must use the correct prefix:
 | Family | Prefix | Examples |
 |--------|--------|----------|
 | App Store Connect (ASC) | `aso <cmd>` | `aso metadata pull`, `aso builds`, `aso apps`, `aso webhooks` |
-| ASO Maniac (AI keywords) | `aso <cmd>` | `aso keywords`, `aso competitors`, `aso dashboard` |
+| ASO Maniac (AI keywords) | `aso <cmd>` | `aso keywords`, `aso storefronts` |
 
 When you don't know the exact flags or subcommands, **ask the CLI**:
 
@@ -90,7 +90,6 @@ All intelligence commands support `--exclude` to strip verbose fields from JSON 
 
 ```bash
 aso keywords analyze camera --exclude topApps,relatedSearches   # Compact view
-aso competitors 123456789 --exclude keywordOverlap              # Summary only
 ```
 
 This is especially useful for AI agents to reduce token usage when verbose arrays like `topApps` aren't needed.
@@ -134,7 +133,7 @@ Skills use the `aso` CLI which connects to [asomaniac.com](https://asomaniac.com
 
 - **Keyword popularity**: 5-100 scores from Apple Search Ads
 - **Difficulty scoring**: Proprietary multi-signal algorithm
-- **Competitor intelligence**: Cross-app keyword overlap analysis
+- **Competitor intelligence**: Cross-app keyword overlap analysis (via REST API: `GET /api/v1/competitors/<appId>`)
 
 Free plan: 100 API calls/month. [Upgrade](https://asomaniac.com/pricing) for higher limits.
 
