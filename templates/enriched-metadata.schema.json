@@ -106,11 +106,6 @@
           "maximum": 100,
           "description": "Ranking difficulty score (0-100)"
         },
-        "currentRank": {
-          "type": ["integer", "null"],
-          "minimum": 1,
-          "description": "Current rank position (null if not ranked)"
-        },
         "opportunity": {
           "type": "number",
           "description": "Opportunity score: popularity * (100 - difficulty) / 100"

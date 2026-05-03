@@ -24,6 +24,8 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 | "If rank went up, the change worked" | Correlation is not causation. Rank fluctuations happen naturally. Compare against a baseline period. |
 | "Apple's Product Page Optimization is enough" | PPO tests conversion (screenshots, icons, descriptions) but NOT keyword ranking. For keyword tests, you need to monitor ranking changes over time. |
 
+> **Note:** Rank tracking is not part of the current MVP. This skill helps you design a test and prepare metadata changes; you'll need to record baseline and post-change ranks yourself (App Store Connect, manual search, or a third-party tracker).
+
 ## Intake — Ask Before Acting
 
 1. **App ID** (required)
@@ -36,21 +38,15 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 ### Step 1: Establish baseline (BEFORE any changes)
 
 ```bash
-# Track current keyword rankings
-aso rank track <appId> --keywords <test_keywords> --storefront <SF>
-
 # Pull current metadata to local directory (look up the latest version string first)
 VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
 aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
-
-# Dashboard overview (rankings, trends, keyword performance)
-aso dashboard
 ```
 
 **Critical:** Collect at least 7 days of baseline data before making changes. Without a baseline, you can't measure impact.
 
-Record:
-- Rank positions for all test keywords (daily for 7+ days)
+Record (manually — rank tracking isn't part of the MVP):
+- Rank positions for all test keywords (check daily for 7+ days via App Store search or your own tracker)
 - Current download rate (from App Store Connect analytics)
 - Current conversion rate (impressions → downloads)
 
@@ -107,13 +103,7 @@ aso metadata push --app <appId> --version "$VERSION" --dir ./metadata
 
 ### Step 4: Monitor results
 
-```bash
-# Check daily for the first week
-aso rank history <appId> --keyword-id <keyword_id> --storefront US --from 2026-03-08 --to 2026-03-22
-
-# Check all tracked keywords for unintended side effects
-aso dashboard
-```
+Record post-change rank positions for the target keyword and any side-effect keywords daily for the first week, then weekly for the remaining test window. Use App Store search, App Store Connect analytics, or your own tracker — the CLI does not currently expose rank history.
 
 ### Step 5: Interpret results (after 14 days minimum)
 
@@ -177,4 +167,4 @@ Test log:
 - Not tracking existing keywords for side effects
 - Running a "test" without a clear hypothesis
 
-> **Unsure about a command or flag?** Run `aso rank --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
+> **Unsure about a command or flag?** Run `aso metadata --help` or `aso schema <query>` to discover available options.

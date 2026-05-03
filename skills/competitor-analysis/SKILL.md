@@ -100,10 +100,10 @@ Sort every keyword into one of these buckets:
 - Popularity > 40
 - Action: Consider boosting via title/subtitle placement
 
-#### D. Aspirational (worth tracking, not worth chasing yet)
+#### D. Aspirational (worth noting, not worth chasing yet)
 - Competitor ranks well, difficulty > 60
 - You have < 500 reviews (insufficient authority)
-- Action: Track with `aso rank track`, revisit in 3-6 months
+- Action: Note for the backlog, revisit in 3-6 months
 
 #### E. Ignore (not worth the effort)
 - Popularity < 15
@@ -151,14 +151,9 @@ Updated keywords (98/100 chars):
   (+3 keywords, +26 chars, 0 quality gate violations)
 ```
 
-### Step 6: Set up monitoring
+### Step 6: Plan a follow-up
 
-```bash
-# Track competitor-unique keywords to detect if you start ranking
-aso rank track <userAppId> --keywords baby,nanny,pet --storefront <SF>
-```
-
-Suggest checking rank history in 2 weeks to measure impact.
+Rank tracking is not part of the current MVP. Schedule a manual re-check in 2-4 weeks: re-run this skill against the same competitors and compare the keyword overlap and your positions on the newly-added terms.
 
 ## Multi-Competitor Analysis
 
@@ -183,7 +178,7 @@ Always provide:
 3. **Defense keywords** (your strongest positions)
 4. **Competitive heatmap** (if multiple competitors)
 5. **Concrete action items** with CLI commands to execute
-6. **Monitoring setup** instructions
+6. **Follow-up plan** (when to re-run the analysis)
 
 ## Red Flags
 

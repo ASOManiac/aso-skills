@@ -73,14 +73,7 @@ For every keyword appearing in 2+ apps:
 aso keywords analyze <conflicted_keyword> --storefront <SF>
 ```
 
-Then check rank for each app:
-
-```bash
-aso rank history <appId_1> --keyword-id <keyword_id> --storefront <SF> --from <start_date> --to <end_date>
-aso rank history <appId_2> --keyword-id <keyword_id> --storefront <SF> --from <start_date> --to <end_date>
-```
-
-Build a conflict resolution scorecard:
+Then check the current rank for each app manually (App Store search or App Store Connect — rank tracking isn't part of the MVP) and build a conflict resolution scorecard:
 
 ```
 CONFLICT: "security camera" (Popularity: 62, Difficulty: 45)
@@ -174,14 +167,9 @@ for APP in <appId_1> <appId_2> <appId_3>; do
 done
 ```
 
-### Step 8: Monitor
+### Step 8: Plan a follow-up
 
-Track all affected keywords across all apps for 2-4 weeks:
-
-```bash
-aso rank track <appId_1> --keywords <reassigned_keywords> --storefront <SF>
-aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
-```
+Rank tracking is not part of the current MVP. Schedule a manual re-check in 2-4 weeks: re-run this skill against the same portfolio and confirm that conflicts are resolved and the assigned-owner apps are climbing on their newly-owned keywords.
 
 ## Output Format
 
@@ -190,7 +178,7 @@ aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
 3. **Ownership table** — who gets which keywords
 4. **Replacement keywords** — for each term an app gives up
 5. **Projected impact** — expected ranking improvements
-6. **Monitoring plan** — what to track and when
+6. **Follow-up plan** — when to re-run this skill
 
 ## Red Flags
 
@@ -198,6 +186,6 @@ aso rank track <appId_2> --keywords <reassigned_keywords> --storefront <SF>
 - Not considering revenue priority when assigning ownership
 - Removing keywords without providing replacements
 - Assigning a keyword to an app where it's irrelevant (just because that app ranks higher)
-- Not setting up post-change monitoring
+- Not scheduling a follow-up re-check
 
 > **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
