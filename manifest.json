@@ -2,7 +2,6 @@
   "version": "1.0.0",
   "install": {
     "universal": "npx skills add ASOManiac/aso-skills",
-    "claude": "claude plugin add ASOManiac/aso-skills",
     "manual": "git clone https://github.com/ASOManiac/aso-skills.git"
   },
   "skills": [

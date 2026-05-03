@@ -40,11 +40,8 @@ Every metadata change passes through 11 quality gates — binary pass/fail rules
 ## Install
 
 ```bash
-# Universal (works with any AI coding tool)
+# Universal (works with any AI coding tool, including Claude Code)
 npx skills add ASOManiac/aso-skills
-
-# Claude Code
-claude plugin add ASOManiac/aso-skills
 
 # Manual
 git clone https://github.com/ASOManiac/aso-skills.git
