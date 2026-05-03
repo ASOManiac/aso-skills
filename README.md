@@ -15,7 +15,6 @@ ASO Skills teaches your AI agent how to do professional ASO. Each skill is a mar
 | **competitor-analysis** | Find keyword gaps and steal opportunities from competitors |
 | **aso-audit** | Full ASO health check with A-F grading across all dimensions |
 | **localization** | Multi-locale strategy leveraging cross-locale indexing rules |
-| **rank-tracker** | Set up keyword rank monitoring with alerts |
 | **release-notes** | Write keyword-optimized "What's New" text that reads naturally |
 | **screenshot-text** | Craft screenshot captions that convert and rank |
 | **ab-testing** | Design and measure metadata A/B tests |
@@ -136,7 +135,6 @@ Skills use the `aso` CLI which connects to [asomaniac.com](https://asomaniac.com
 - **Keyword popularity**: 5-100 scores from Apple Search Ads
 - **Difficulty scoring**: Proprietary multi-signal algorithm
 - **Competitor intelligence**: Cross-app keyword overlap analysis
-- **Rank tracking**: Daily automated checks with historical trends
 
 Free plan: 100 API calls/month. [Upgrade](https://asomaniac.com/pricing) for higher limits.
 

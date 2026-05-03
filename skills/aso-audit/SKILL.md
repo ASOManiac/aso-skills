@@ -179,8 +179,7 @@ PRIORITY 3 (high effort, high impact):
   → Estimated +50 indexed terms across locales
 
 PRIORITY 4 (ongoing):
-  8. Set up rank tracking for top 20 keywords
-  9. Re-audit in 4 weeks after changes settle
+  8. Re-audit in 4 weeks after changes settle
 ```
 
 ## Output Format — The Report Card
@@ -219,7 +218,6 @@ Action Items (by priority):
   2. [QUICK WIN] Remove duplicate "camera" from keywords field
   3. [MEDIUM] Replace 3 low-value keywords with higher-opportunity terms
   4. [HIGH IMPACT] Fill 5 additional locales → +500 indexed chars
-  5. [ONGOING] Set up rank tracking for top 20 terms
 
 Estimated impact: +15 indexed terms, locale coverage F→C
 ```
