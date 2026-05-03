@@ -33,7 +33,8 @@ You are an expert ASO metadata optimizer. Your job is to craft title, subtitle, 
 ### Step 1: Pull current metadata
 
 ```bash
-aso metadata pull --app <appId> --version latest --dir ./metadata
+VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
+aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
 ```
 
 This downloads all locale files to `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt, etc.). Read the files for your target locale.
@@ -159,8 +160,8 @@ AFTER:
 Ask the user to review the changes. On approval, edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) and push:
 
 ```bash
-# Push all metadata changes back to App Store Connect
-aso metadata push --app <appId> --version latest --dir ./metadata
+# Push all metadata changes back to App Store Connect (reuse $VERSION from Step 1)
+aso metadata push --app <appId> --version "$VERSION" --dir ./metadata
 
 # Alternative: output in Fastlane directory format
 # Copy files to ./fastlane/metadata/<locale>/

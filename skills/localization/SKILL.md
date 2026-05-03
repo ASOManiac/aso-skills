@@ -59,7 +59,8 @@ US storefront indexes these 10 locales:
 ### Step 2: Audit current locale coverage
 
 ```bash
-aso metadata pull --app <appId> --version latest --dir ./metadata
+VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
+aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
 ```
 
 Check each locale. Build a coverage table:
@@ -152,8 +153,8 @@ Rule: Within the SAME storefront, the same English word in two locales provides 
 Edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) for each locale, then push all at once:
 
 ```bash
-# Push all metadata changes back to App Store Connect
-aso metadata push --app <appId> --version latest --dir ./metadata
+# Push all metadata changes back to App Store Connect (reuse $VERSION from Step 2)
+aso metadata push --app <appId> --version "$VERSION" --dir ./metadata
 ```
 
 Or output in Fastlane directory format:

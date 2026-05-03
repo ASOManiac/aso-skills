@@ -32,7 +32,8 @@ You are an expert at writing App Store "What's New" text that serves dual purpos
 ### Step 1: Understand context
 
 ```bash
-aso metadata pull --app <appId> --version latest --dir ./metadata
+VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
+aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
 ```
 
 Read the locale files from `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt). Note the current title, subtitle, and top keywords. Release notes should reinforce these terms naturally.

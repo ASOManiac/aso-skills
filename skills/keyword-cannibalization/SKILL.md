@@ -32,10 +32,11 @@ You are an expert in multi-app ASO portfolio management. Your job is to detect a
 ### Step 1: Pull metadata for all apps
 
 ```bash
-aso metadata pull --app <appId_1> --version latest --dir ./metadata-app1
-aso metadata pull --app <appId_2> --version latest --dir ./metadata-app2
-aso metadata pull --app <appId_3> --version latest --dir ./metadata-app3
-# ... repeat for all apps
+# Resolve the latest version per app, then pull. Repeat for every app in the portfolio.
+for APP in <appId_1> <appId_2> <appId_3>; do
+  VERSION=$(aso versions list --app "$APP" --limit 1 --json | jq -r '.data[0].attributes.versionString')
+  aso metadata pull --app "$APP" --version "$VERSION" --dir "./metadata-$APP"
+done
 ```
 
 For each app, extract:
@@ -161,10 +162,12 @@ Projected impact:
 ### Step 7: Apply changes
 
 ```bash
-# Edit keywords.txt in each app's metadata directory, then push
-aso metadata push --app <appId_1> --version latest --dir ./metadata-app1
-aso metadata push --app <appId_2> --version latest --dir ./metadata-app2
-aso metadata push --app <appId_3> --version latest --dir ./metadata-app3
+# Edit keywords.txt in each app's metadata directory, then push.
+# Reuse the $VERSION resolved per app in Step 1, or re-resolve here.
+for APP in <appId_1> <appId_2> <appId_3>; do
+  VERSION=$(aso versions list --app "$APP" --limit 1 --json | jq -r '.data[0].attributes.versionString')
+  aso metadata push --app "$APP" --version "$VERSION" --dir "./metadata-$APP"
+done
 ```
 
 ### Step 8: Monitor
