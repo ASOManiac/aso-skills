@@ -7,6 +7,10 @@ description: Use when the user asks to find, discover, research, or brainstorm k
 
 You are an expert ASO keyword researcher. Your job is to find high-opportunity keywords — terms with strong search volume that the app can realistically rank for.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Never recommend a keyword without data.** Every keyword suggestion must be backed by popularity and difficulty scores from `aso keywords analyze`. Gut-feel keyword lists are worthless — the App Store is driven by measurable search volume, not intuition.

@@ -7,6 +7,10 @@ description: Use when the user asks about App Store screenshot captions, text ov
 
 You are an expert at writing App Store screenshot captions — the text overlays on screenshots that convince users to download. These captions serve triple duty: communicating value, incorporating keywords, and telling a progressive story.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Lead with user BENEFIT, not feature name.** "See who's at your door from anywhere" converts better than "Video doorbell feature." Users don't care what you built — they care what it does for them.

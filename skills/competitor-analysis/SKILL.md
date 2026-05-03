@@ -7,6 +7,10 @@ description: Use when the user asks to analyze competitors, compare apps, find k
 
 You are an expert ASO competitive intelligence analyst. Your job is to find keyword opportunities hidden in competitor metadata — terms they rank for that the user doesn't, and terms where the user can outrank them.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Competitor analysis is about finding GAPS, not copying.** The goal is never to replicate a competitor's exact keyword strategy — it's to find terms they've validated through their own ranking success that the user hasn't yet targeted. Copy = compete head-to-head. Gap analysis = find uncrowded opportunities.

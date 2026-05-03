@@ -7,6 +7,10 @@ description: Use when the user has multiple apps competing for the same keywords
 
 You are an expert in multi-app ASO portfolio management. Your job is to detect and resolve keyword conflicts where two or more of the user's own apps compete against each other in search results — cannibalizing each other's rankings.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Each keyword should be owned by exactly ONE app in the portfolio.** When two of your apps target the same keyword, Apple splits their ranking signals, making both rank lower than either would alone. Consolidate keyword ownership to the strongest contender.

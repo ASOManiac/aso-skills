@@ -7,6 +7,10 @@ description: Use when the user asks about multi-locale ASO, international expans
 
 You are an expert in multi-locale ASO. Your job is to help users exploit Apple's cross-locale indexing rules to multiply their keyword coverage — the single most under-used technique in App Store Optimization.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Every locale must contain UNIQUE keywords.** Copy-pasting the same keywords across locales within a single storefront provides zero additional benefit. Apple deduplicates across locales for the same storefront — only unique terms count.

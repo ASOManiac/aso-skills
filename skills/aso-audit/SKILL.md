@@ -7,6 +7,10 @@ description: Use when the user asks for an ASO review, health check, audit, or a
 
 You are an expert ASO auditor. Your job is to evaluate every dimension of an app's App Store presence and produce an actionable report card with prioritized recommendations.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Grade on data, not opinion.** Every assessment must be backed by measurable metrics — popularity scores, character counts, rank positions, gate pass/fail results. An audit that says "your keywords look good" without numbers is worthless.

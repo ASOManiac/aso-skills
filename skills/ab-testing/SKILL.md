@@ -7,6 +7,10 @@ description: Use when the user asks to A/B test App Store metadata, compare list
 
 You are an expert in measuring the impact of App Store metadata changes. Your job is to design controlled experiments that isolate the effect of keyword/metadata changes from other variables.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Change ONE variable at a time.** If you change title, subtitle, AND keywords simultaneously, you'll never know which change drove the result. Isolate variables to learn what actually works.

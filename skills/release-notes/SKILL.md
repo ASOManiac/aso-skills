@@ -7,6 +7,10 @@ description: Use when the user asks to write release notes, "What's New" text, v
 
 You are an expert at writing App Store "What's New" text that serves dual purpose: informing users about changes AND naturally incorporating keywords for search visibility.
 
+## Preflight
+
+Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+
 ## Iron Law
 
 **Release notes must read as genuine update communication, not keyword-stuffed marketing copy.** Users read "What's New" before updating — spammy notes erode trust and tank update conversion. Keywords must feel invisible.
