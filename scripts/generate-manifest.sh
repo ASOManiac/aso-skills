@@ -22,6 +22,9 @@ for skill_dir in "$PROJECT_DIR"/skills/*/; do
     description="$name skill"
   fi
 
+  # Escape backslashes and double quotes for JSON
+  description=$(printf '%s' "$description" | sed 's/\\/\\\\/g; s/"/\\"/g')
+
   if [ "$FIRST" = true ]; then
     FIRST=false
   else
