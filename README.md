@@ -89,7 +89,7 @@ Prefer `--help` and `aso schema` over guessing. The CLI is the source of truth.
 All intelligence commands support `--exclude` to strip verbose fields from JSON output:
 
 ```bash
-aso keywords analyze camera --exclude topApps,relatedSearches   # Compact view
+aso keywords analyze camera --exclude topApps,relatedSearches
 ```
 
 This is especially useful for AI agents to reduce token usage when verbose arrays like `topApps` aren't needed.

@@ -35,7 +35,7 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 ### If the user doesn't know their competitors:
 
 ```bash
-aso keywords analyze <user_top_keyword> --storefront <SF>
+aso keywords analyze <user_top_keyword> --storefront <SF> --exclude topApps,relatedSearches
 ```
 
 The `topApps` in the response ARE the competitors. Pick the top 3 that are:
@@ -67,7 +67,7 @@ This returns:
 For deeper overlap analysis with a specific competitor:
 
 ```bash
-aso keywords analyze <competitor_unique_keywords> --storefront <SF>
+aso keywords analyze <competitor_unique_keywords> --storefront <SF> --exclude topApps,relatedSearches
 ```
 
 ### Step 2: Map the keyword landscape

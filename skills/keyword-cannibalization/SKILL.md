@@ -70,7 +70,7 @@ Map every keyword to every app that targets it:
 For every keyword appearing in 2+ apps:
 
 ```bash
-aso keywords analyze <conflicted_keyword> --storefront <SF>
+aso keywords analyze <conflicted_keyword> --storefront <SF> --exclude topApps,relatedSearches
 ```
 
 Then check the current rank for each app manually (App Store search or App Store Connect — rank tracking isn't part of the MVP) and build a conflict resolution scorecard:

@@ -51,7 +51,7 @@ Record:
 ### Step 2: Analyze current keywords
 
 ```bash
-aso keywords analyze <all_current_keywords> --storefront <SF>
+aso keywords analyze <all_current_keywords> --storefront <SF> --exclude topApps,relatedSearches
 ```
 
 Build a scorecard for every term currently in the metadata:
