@@ -37,7 +37,7 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 ### Step 1: Research keyword context
 
 ```bash
-aso keywords analyze <top_keywords> --storefront <SF> --exclude topApps,relatedSearches
+aso keywords analyze <top_keywords> --storefront <SF> --exclude topApps,relatedSearches,totalApps
 ```
 
 Identify the top 5 keywords by popularity. These are candidates for natural inclusion in captions.

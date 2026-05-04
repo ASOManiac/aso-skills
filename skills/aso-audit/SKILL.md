@@ -49,7 +49,7 @@ aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
 aso apps view --id <appId>
 
 # Analyze all current keywords
-aso keywords analyze <all_keywords_from_metadata> --storefront <SF> --exclude topApps,relatedSearches
+aso keywords analyze <all_keywords_from_metadata> --storefront <SF> --exclude topApps,relatedSearches,totalApps
 ```
 
 ### Step 2: Run ALL quality gates

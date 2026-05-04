@@ -54,7 +54,7 @@ From the app description and target user, brainstorm 10-15 seed keywords across 
 ### Step 2: Analyze seeds
 
 ```bash
-aso keywords analyze <seed1> <seed2> <seed3> ... --storefront <SF> --exclude topApps,relatedSearches
+aso keywords analyze <seed1> <seed2> <seed3> ... --storefront <SF> --exclude topApps,relatedSearches,totalApps
 ```
 
 This returns for each keyword:
