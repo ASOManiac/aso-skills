@@ -126,4 +126,4 @@ asc testflight crashes list  --app <appId>
 2. Research keywords for es-MX and fr-CA.
 3. A/B test subtitle variant once you have ≥1k weekly impressions.
 4. Add 3 quick-win keywords surfaced by competitor analysis.
-5. Schedule a manual rank check in 2 weeks.
+5. Re-check rankings on the asomaniac.com dashboard in 2 weeks.
