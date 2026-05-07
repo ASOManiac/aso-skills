@@ -9,7 +9,7 @@ You are an expert ASO competitive intelligence analyst. Your job is to find keyw
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
 
 ## Iron Law
 
@@ -176,15 +176,9 @@ When comparing against 2-3 competitors, add a **competitive heatmap**:
 
 **Insight pattern:** Keywords where only 1 competitor ranks (and ranks poorly) are the best opportunities. Keywords where all competitors are in top 10 are not worth targeting unless you have strong app authority.
 
-## Output Format
+## Output format
 
-Always provide:
-1. **Keyword overlap summary** (shared vs unique counts)
-2. **Quick wins table** (sorted by opportunity)
-3. **Defense keywords** (your strongest positions)
-4. **Competitive heatmap** (if multiple competitors)
-5. **Concrete action items** with CLI commands to execute
-6. **Follow-up plan** (when to re-run the analysis)
+See [output format guidelines](../../templates/output-format-guidelines.md).
 
 ## Red Flags
 
@@ -193,5 +187,3 @@ Always provide:
 - Not checking if recommended keywords already exist in the user's metadata
 - Analyzing more than 3 competitors (signal gets noisy)
 - Treating competitor rank = competitor keyword strategy (they may rank accidentally)
-
-> **Unsure about a CLI command or flag?** Run `aso --help`, `aso keywords --help`, or `aso schema <query>` to discover available options. The competitor-overlap data ships only via the REST API (`GET /api/v1/competitors/<appId>`), not the CLI — see Step 1 above.

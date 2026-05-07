@@ -9,7 +9,7 @@ You are an expert in multi-app ASO portfolio management. Your job is to detect a
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
 
 ## Iron Law
 
@@ -35,12 +35,11 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 
 ### Step 1: Pull metadata for all apps
 
+Each app in the portfolio is its own fastlane project (its own working directory with `fastlane/metadata/`). For every app, run:
+
 ```bash
-# Resolve the latest version per app, then pull. Repeat for every app in the portfolio.
-for APP in <appId_1> <appId_2> <appId_3>; do
-  VERSION=$(aso versions list --app "$APP" --limit 1 --json | jq -r '.data[0].attributes.versionString')
-  aso metadata pull --app "$APP" --version "$VERSION" --dir "./metadata-$APP"
-done
+cd <app_repo>
+fastlane deliver download_metadata
 ```
 
 For each app, extract:
@@ -158,27 +157,20 @@ Projected impact:
 
 ### Step 7: Apply changes
 
+Edit the locale files under each app's `fastlane/metadata/<locale>/keywords.txt`, then deploy each app:
+
 ```bash
-# Edit keywords.txt in each app's metadata directory, then push.
-# Reuse the $VERSION resolved per app in Step 1, or re-resolve here.
-for APP in <appId_1> <appId_2> <appId_3>; do
-  VERSION=$(aso versions list --app "$APP" --limit 1 --json | jq -r '.data[0].attributes.versionString')
-  aso metadata push --app "$APP" --version "$VERSION" --dir "./metadata-$APP"
-done
+cd <app_repo>
+fastlane deliver
 ```
 
 ### Step 8: Plan a follow-up
 
 Rank tracking is not part of the current MVP. Schedule a manual re-check in 2-4 weeks: re-run this skill against the same portfolio and confirm that conflicts are resolved and the assigned-owner apps are climbing on their newly-owned keywords.
 
-## Output Format
+## Output format
 
-1. **Conflict matrix** — visual map of all keyword overlaps
-2. **Resolution scorecard** — per-conflict winner/loser with reasoning
-3. **Ownership table** — who gets which keywords
-4. **Replacement keywords** — for each term an app gives up
-5. **Projected impact** — expected ranking improvements
-6. **Follow-up plan** — when to re-run this skill
+See [output format guidelines](../../templates/output-format-guidelines.md).
 
 ## Red Flags
 
@@ -187,5 +179,3 @@ Rank tracking is not part of the current MVP. Schedule a manual re-check in 2-4 
 - Removing keywords without providing replacements
 - Assigning a keyword to an app where it's irrelevant (just because that app ranks higher)
 - Not scheduling a follow-up re-check
-
-> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

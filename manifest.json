@@ -6,6 +6,7 @@
     "manual": "git clone https://github.com/ASOManiac/aso-skills.git"
   },
   "skills": [
+    {"name": "aso", "description": "Proactive parent skill for end-to-end ASO workflows. Asks scoping questions, then routes to sub-skills or runs inline launch orchestration with multi-locale + fastlane."},
     {"name": "aso-audit", "description": "Use when the user asks for an ASO review, health check, audit, or assessment. Triggers on \"audit my ASO\", \"how is my app doing?\", \"review my app store listing\", \"ASO health check\", \"what's wrong with my listing?"},
     {"name": "competitor-analysis", "description": "Use when the user asks to analyze competitors, compare apps, find keyword gaps, or understand competitive positioning. Triggers on \"who are my competitors?\", \"compare my app to X\", \"what keywords are my competitors using?\", \"steal keywords from competitor."},
     {"name": "keyword-cannibalization", "description": "Use when the user has multiple apps competing for the same keywords, or asks about portfolio keyword strategy, cross-app conflicts, or multi-app ASO. Triggers on \"my apps compete for the same keywords\", \"keyword cannibalization\", \"portfolio keyword strategy\", \"which app should target which keyword?"},

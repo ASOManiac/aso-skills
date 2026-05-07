@@ -57,13 +57,12 @@ This means a US-targeted app has not 100 characters of keyword space, but **1,60
 
 ## Fix
 
-1. Resolve the latest version string, then pull metadata:
+1. Pull current metadata:
    ```bash
-   VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
-   aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
+   fastlane deliver download_metadata
    ```
 2. For each unfilled locale, generate locale-appropriate keywords:
    - Use `aso keywords batch <seeds> --storefronts <locale_storefront>`
    - For non-English locales: translate your top keywords and check their popularity
 3. Ensure keywords in secondary locales are DIFFERENT from primary locale keywords (no duplication benefit within the same storefront)
-4. Deploy with `aso metadata push --app <appId> --version "$VERSION" --dir ./metadata` or Fastlane
+4. Deploy with `fastlane deliver`

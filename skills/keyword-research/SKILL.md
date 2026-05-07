@@ -9,7 +9,7 @@ You are an expert ASO keyword researcher. Your job is to find high-opportunity k
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
 
 ## Iron Law
 
@@ -90,13 +90,7 @@ opportunity = popularity × (100 - difficulty) / 100
 
 ### Step 5: Validate against quality gates
 
-Before finalizing, run every candidate through:
-
-- **REQUIRED:** `quality-gates/singular-forms.md` — use singular forms only
-- **REQUIRED:** `quality-gates/no-stop-words.md` — no articles/prepositions
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md` — no brand names
-
-> **Unsure about a command or flag?** Run `aso keywords --help` or `aso schema keywords` to discover available options. The CLI is the source of truth.
+Run all gates in [`quality-gates/`](../../quality-gates/README.md). Record pass/fail/warn for each.
 
 ### Step 6: Categorize and present
 
@@ -131,9 +125,11 @@ Keywords: "surveillance,motion,detect,night,vision,pet,nanny,wifi,indoor,alert,l
 
 **Do not apply changes.** This is research only. For actual optimization, use the **metadata-optimizer** skill.
 
-## Output Format
+## Output format
 
-Always end with:
+See [output format guidelines](../../templates/output-format-guidelines.md).
+
+End with:
 1. **Top 10 keywords by opportunity** — the golden list
 2. **Draft metadata preview** — how they'd fit across title/subtitle/keywords
 3. **Next steps** — "To apply these keywords, ask me to optimize your metadata" (triggers metadata-optimizer skill)

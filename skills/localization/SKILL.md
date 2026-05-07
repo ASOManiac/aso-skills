@@ -9,7 +9,9 @@ You are an expert in multi-locale ASO. Your job is to help users exploit Apple's
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
+
+For App Store Connect operations, see [ASC preflight](../../templates/preflight-asc-cli.md).
 
 ## Iron Law
 
@@ -39,7 +41,7 @@ Important distinction: localizing **metadata** (keywords, title, subtitle) works
 
 ### Step 1: Map the indexing landscape
 
-**REQUIRED:** `quality-gates/locale-coverage.md`
+Run all gates in [`quality-gates/`](../../quality-gates/README.md), with particular attention to `locale-coverage` and `indexed-char-efficiency`. Record pass/fail/warn for each.
 
 For the target storefront, identify all indexed locales:
 
@@ -63,11 +65,10 @@ US storefront indexes these 10 locales:
 ### Step 2: Audit current locale coverage
 
 ```bash
-VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
-aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
+fastlane deliver download_metadata
 ```
 
-Check each locale. Build a coverage table:
+Check each locale under `fastlane/metadata/`. Build a coverage table:
 
 ```
 | Locale | Title | Subtitle | Keywords | Chars Used | Unique Terms |
@@ -154,14 +155,14 @@ Rule: Within the SAME storefront, the same English word in two locales provides 
 
 ### Step 6: Deploy
 
-Edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) for each locale, then push all at once:
+Edit the locale files in `fastlane/metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) for each locale, then push all at once:
 
 ```bash
-# Push all metadata changes back to App Store Connect (reuse $VERSION from Step 2)
-aso metadata push --app <appId> --version "$VERSION" --dir ./metadata
+fastlane deliver
 ```
 
-Or output in Fastlane directory format:
+Resulting layout:
+
 ```
 fastlane/metadata/
   en-US/
@@ -176,13 +177,9 @@ fastlane/metadata/
     ...
 ```
 
-## Output Format
+## Output format
 
-1. **Locale coverage map** — before/after comparison
-2. **Per-locale keyword lists** with popularity data
-3. **Cross-locale dedup verification**
-4. **Efficiency improvement** — "From 9.5% to 72% indexed character efficiency"
-5. **Deployment commands** or Fastlane output
+See [output format guidelines](../../templates/output-format-guidelines.md).
 
 ## Red Flags
 
@@ -191,5 +188,3 @@ fastlane/metadata/
 - Forgetting that en-GB and en-US are indexed separately for the US storefront (they are!)
 - Not verifying that non-English keywords are actually searched (popular in the target language)
 - Localizing title/subtitle without localizing the keywords field
-
-> **Unsure about a command or flag?** Run `aso keywords --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

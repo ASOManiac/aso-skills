@@ -28,15 +28,11 @@ fastlane/metadata/
 After running a metadata optimization skill:
 
 ```bash
-# Option 1: Deploy via Fastlane
+# Deploy via fastlane (primary)
 cd your-app-project
 fastlane deliver --skip_binary_upload --skip_screenshots
 
-# Option 2: Deploy via aso CLI (resolve the latest version string first)
-VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
-aso metadata push --app <appId> --version "$VERSION" --dir ./fastlane/metadata
-
-# Option 3: Manual — copy-paste from files into App Store Connect
+# Or, manual: copy-paste from files into App Store Connect
 ```
 
 ## Important notes

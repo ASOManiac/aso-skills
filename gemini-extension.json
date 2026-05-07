@@ -3,6 +3,7 @@
   "description": "Expert ASO skills for App Store Optimization using aso-cli",
   "version": "1.0.0",
   "extensions": [
+    { "path": "skills/aso/SKILL.md", "trigger": "aso" },
     { "path": "skills/keyword-research/SKILL.md", "trigger": "keyword research" },
     { "path": "skills/metadata-optimizer/SKILL.md", "trigger": "optimize metadata" },
     { "path": "skills/competitor-analysis/SKILL.md", "trigger": "competitor analysis" },

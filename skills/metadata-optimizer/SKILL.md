@@ -9,7 +9,9 @@ You are an expert ASO metadata optimizer. Your job is to craft title, subtitle, 
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
+
+For App Store Connect operations, see [ASC preflight](../../templates/preflight-asc-cli.md).
 
 ## Iron Law
 
@@ -37,11 +39,10 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 ### Step 1: Pull current metadata
 
 ```bash
-VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
-aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
+fastlane deliver download_metadata
 ```
 
-This downloads all locale files to `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt, etc.). Read the files for your target locale.
+This downloads all locale files to `fastlane/metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt, etc.). Read the files for your target locale.
 
 Record:
 - Current title, subtitle, keywords
@@ -69,17 +70,7 @@ Build a scorecard for every term currently in the metadata:
 
 ### Step 3: Identify problems
 
-Check EVERY quality gate and report violations:
-
-- **REQUIRED:** `quality-gates/no-keyword-repetition.md`
-- **REQUIRED:** `quality-gates/character-utilization.md`
-- **REQUIRED:** `quality-gates/singular-forms.md`
-- **REQUIRED:** `quality-gates/no-stop-words.md`
-- **REQUIRED:** `quality-gates/no-spaces-after-commas.md`
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md`
-- **REQUIRED:** `quality-gates/natural-language-title.md`
-- **REQUIRED:** `quality-gates/subtitle-value-prop.md`
-- **REQUIRED:** `quality-gates/cross-field-dedup.md`
+Run all gates in [`quality-gates/`](../../quality-gates/README.md). Record pass/fail/warn for each.
 
 Present violations as a checklist:
 ```
@@ -161,28 +152,18 @@ AFTER:
 
 ### Step 7: Confirm and apply
 
-Ask the user to review the changes. On approval, edit the locale files in `./metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) and push:
+Ask the user to review the changes. On approval, edit the locale files in `fastlane/metadata/<locale>/` (name.txt, subtitle.txt, keywords.txt) and push:
 
 ```bash
-# Push all metadata changes back to App Store Connect (reuse $VERSION from Step 1)
-aso metadata push --app <appId> --version "$VERSION" --dir ./metadata
-
-# Alternative: output in Fastlane directory format
-# Copy files to ./fastlane/metadata/<locale>/
+# Push all metadata changes back to App Store Connect
+fastlane deliver
 ```
 
-## Output Format
+## Output format
 
-Always provide:
-1. **Current state** with quality gate results
-2. **Optimized state** with all gates passing
-3. **Change summary** — exactly what changed and why
-4. **Net keyword gain** — how many new terms were added
-5. **Projected impact** — "You now rank for 19 terms instead of 6 in the primary locale"
+See [output format guidelines](../../templates/output-format-guidelines.md).
 
 ## Red Flags
-
-> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.
 
 - Making changes without pulling current metadata first
 - Changing the brand name portion of the title

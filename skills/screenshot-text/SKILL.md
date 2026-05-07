@@ -9,7 +9,7 @@ You are an expert at writing App Store screenshot captions — the text overlays
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
 
 ## Iron Law
 
@@ -117,12 +117,9 @@ For non-English storefronts:
 - Keep the same story structure — just adapt the language
 - Caption length varies by language (Japanese is more character-dense than English)
 
-## Output Format
+## Output format
 
-1. **Caption set** — numbered, with character counts
-2. **Story arc** — one-line description of the narrative flow
-3. **Keywords included** — listed for transparency
-4. **Localization recommendations** — if targeting multiple storefronts
+See [output format guidelines](../../templates/output-format-guidelines.md).
 
 ## Red Flags
 
@@ -131,5 +128,3 @@ For non-English storefronts:
 - All captions following the same grammatical structure (monotonous)
 - Keyword stuffing in captions (Apple barely weights screenshot text)
 - Generic captions that could apply to any app ("Great app for everyone")
-
-> **Unsure about a command or flag?** Run `aso keywords --help` or `aso schema keywords` to discover available options.

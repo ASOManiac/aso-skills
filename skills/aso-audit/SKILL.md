@@ -9,7 +9,9 @@ You are an expert ASO auditor. Your job is to evaluate every dimension of an app
 
 ## Preflight
 
-Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../../templates/preflight-aso-cli.md) to ensure the CLI is installed and authenticated to ASO Maniac. If a premium command later returns `UNAUTHORIZED` / 401, re-run `aso auth maniac login` and retry.
+[Required setup](../../templates/preflight-aso-cli.md) — ensure CLI installed and authenticated.
+
+For App Store Connect operations, see [ASC preflight](../../templates/preflight-asc-cli.md).
 
 ## Iron Law
 
@@ -38,15 +40,8 @@ Before running any `aso` command, follow [`templates/preflight-aso-cli.md`](../.
 Run these commands (in parallel where possible):
 
 ```bash
-# Portfolio overview — list all apps under this account
-aso apps list --json
-
-# Pull all metadata (all locales) to a local directory
-VERSION=$(aso versions list --app <appId> --limit 1 --json | jq -r '.data[0].attributes.versionString')
-aso metadata pull --app <appId> --version "$VERSION" --dir ./metadata
-
-# Per-app metadata snapshot (name, subtitle, primary locale, category)
-aso apps view --id <appId>
+# Pull all metadata (all locales) to fastlane/metadata/
+fastlane deliver download_metadata
 
 # Analyze all current keywords
 aso keywords analyze <all_keywords_from_metadata> --storefront <SF> --exclude topApps,relatedSearches,totalApps
@@ -54,19 +49,7 @@ aso keywords analyze <all_keywords_from_metadata> --storefront <SF> --exclude to
 
 ### Step 2: Run ALL quality gates
 
-Check every gate and record pass/fail/warn:
-
-- **REQUIRED:** `quality-gates/no-keyword-repetition.md`
-- **REQUIRED:** `quality-gates/character-utilization.md`
-- **REQUIRED:** `quality-gates/singular-forms.md`
-- **REQUIRED:** `quality-gates/no-stop-words.md`
-- **REQUIRED:** `quality-gates/no-spaces-after-commas.md`
-- **REQUIRED:** `quality-gates/no-trademarked-terms.md`
-- **REQUIRED:** `quality-gates/locale-coverage.md`
-- **REQUIRED:** `quality-gates/natural-language-title.md`
-- **REQUIRED:** `quality-gates/subtitle-value-prop.md`
-- **REQUIRED:** `quality-gates/cross-field-dedup.md`
-- **REQUIRED:** `quality-gates/indexed-char-efficiency.md`
+Run all gates in [`quality-gates/`](../../quality-gates/README.md). Record pass/fail/warn for each.
 
 ### Step 3: Score each dimension
 
@@ -237,5 +220,3 @@ Estimated impact: +15 indexed terms, locale coverage F→C
 - Skipping locale coverage check (it's the single biggest missed opportunity for most apps)
 - Not providing specific, actionable recommendations
 - Auditing without pulling keyword popularity/difficulty data
-
-> **Unsure about a command or flag?** Run `aso --help`, `aso metadata --help`, or `aso schema <query>` to discover available options.

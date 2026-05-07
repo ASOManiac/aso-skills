@@ -10,6 +10,7 @@ ASO Skills teaches your AI agent how to do professional ASO. Each skill is a mar
 
 | Skill | What it does |
 |-------|-------------|
+| **aso** | Parent orchestrator — scopes the request, then routes to a sub-skill or runs an inline launch playbook |
 | **keyword-research** | Discover high-opportunity keywords using popularity/difficulty scoring |
 | **metadata-optimizer** | Optimize title, subtitle, and keywords field with quality gates |
 | **competitor-analysis** | Find keyword gaps and steal opportunities from competitors |
@@ -65,22 +66,17 @@ aso auth maniac login
 
 ## Self-Discovery
 
-The CLI has two command families — skills must use the correct prefix:
-
-| Family | Prefix | Examples |
-|--------|--------|----------|
-| App Store Connect (ASC) | `aso <cmd>` | `aso metadata pull`, `aso builds`, `aso apps`, `aso webhooks` |
-| ASO Maniac (AI keywords) | `aso <cmd>` | `aso keywords`, `aso storefronts` |
+The `aso` CLI focuses on ASO Maniac intelligence (keyword research, recommendations, storefronts). App Store Connect operations (metadata, builds, TestFlight, submit) live in **fastlane** (primary) and the **App Store Connect CLI** (TestFlight feedback / crashes only).
 
 When you don't know the exact flags or subcommands, **ask the CLI**:
 
 ```bash
-aso --help                        # All top-level commands (intelligence commands listed first)
+aso --help                        # All top-level commands
 aso keywords --help               # Help for a specific command
-aso schema <query>                # Machine-readable API endpoint discovery (for agents)
+fastlane actions                  # Browse fastlane actions
 ```
 
-Prefer `--help` and `aso schema` over guessing. The CLI is the source of truth.
+Prefer `--help` over guessing. The CLI is the source of truth.
 
 ### Output Filtering
 
