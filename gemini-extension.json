@@ -8,9 +8,7 @@
     { "path": "skills/competitor-analysis/SKILL.md", "trigger": "competitor analysis" },
     { "path": "skills/aso-audit/SKILL.md", "trigger": "aso audit" },
     { "path": "skills/localization/SKILL.md", "trigger": "localization" },
-    { "path": "skills/release-notes/SKILL.md", "trigger": "release notes" },
     { "path": "skills/screenshot-text/SKILL.md", "trigger": "screenshot text" },
-    { "path": "skills/ab-testing/SKILL.md", "trigger": "ab testing" },
     { "path": "skills/keyword-cannibalization/SKILL.md", "trigger": "keyword cannibalization" }
   ]
 }

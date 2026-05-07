@@ -15,9 +15,7 @@ ASO Skills teaches your AI agent how to do professional ASO. Each skill is a mar
 | **competitor-analysis** | Find keyword gaps and steal opportunities from competitors |
 | **aso-audit** | Full ASO health check with A-F grading across all dimensions |
 | **localization** | Multi-locale strategy leveraging cross-locale indexing rules |
-| **release-notes** | Write keyword-optimized "What's New" text that reads naturally |
 | **screenshot-text** | Craft screenshot captions that convert and rank |
-| **ab-testing** | Design and measure metadata A/B tests |
 | **keyword-cannibalization** | Fix keyword conflicts across multi-app portfolios |
 
 ## Quality Gates
