@@ -1,5 +1,10 @@
 # ASO Skills
 
+> ## ⏸️ Paused (June 2026)
+>
+> ASO Maniac and its tooling are currently **paused** — new development, signups, and billing are on hold while we focus elsewhere. This repo stays up for reference; existing installs keep working but are unmaintained for now.
+
+
 Expert App Store Optimization playbooks for AI agents. Works with any AI coding assistant — Claude Code, Cursor, Codex, Gemini, Windsurf, and more.
 
 ## What is this?
